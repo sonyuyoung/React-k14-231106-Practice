@@ -39,16 +39,30 @@ function App() {
   // return name || "값이 undefined 입니다. ";
 
   // 인라인 스타일링 기본
-  const name = "이상용";
+  // const name = "이상용";
   // 스타일 정의 해서 사용했고,
 
   // const style = {backgroundColor: "red", color: "yellow", fontSize: "50px" };
 
   // 바로 사용도 가능함.
+  // return (
+  //   <div style={{ backgroundColor: "red", color: "yellow", fontSize: "50px" }}>
+  //     {name}
+  //     <div className="reactTest">이상용2</div>
+  //   </div>
+  // );
+
+  // 반드시 닫야하는 태그 , input
   return (
-    <div style={{ backgroundColor: "red", color: "yellow", fontSize: "50px" }}>
-      {name}
-      <div className="reactTest">이상용2</div>
+    <div>
+      {/* JSX에서의 기본 주석의 모양 */}
+      {/* ide 주석 하고 싶다. ctrl + /  보통 자동으로 주석 처리. */}
+      {/* // 이런 주석은 그대로 표기 1 /* 이런 주석도 그대로 표기 2 */}
+      <form>
+        이름 : <br />
+        {/* <input> </input>
+        <input /> */}
+      </form>
     </div>
   );
 }

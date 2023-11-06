@@ -26,13 +26,23 @@ function App() {
   // if 대신에 jsx 에서 조건부 연산자 이용.
   // const : 상수처럼 사용, 안드로이드 val
   // let : 변수처럼 사용, 안드로이드 var
-  const name = "이상용";
-  // {조건식 ? (참 실행될 문장) : ( 거짓 실행될 문장)}
-  return (
-    <div>
-      {name === "이상용2" ? <h1>이상용이 맞네</h1> : <h1>이상용이 아니네</h1>}
-    </div>
-  );
+
+  // const name = "이상용";
+  // // {조건식 ? (참 실행될 문장) : ( 거짓 실행될 문장)}
+  // return <div>{name === "이상용2" ? <h1>이상용이 맞네</h1> : null}</div>;
+
+  // const name = "이상용";
+  // const number = 0;
+  // && 2가지 조건이 참이 되어야 실행이 되는데,
+  // 앞에 조건이 거짓이면, 뒤에 조건을 안봄.
+  // return <div>{name === "이상용" && <h1>이상용이 맞네</h1>}</div>;
+  // return <div>{number && <h1>이상용이 맞네</h1>}</div>;
+
+  // undefined 렌더링 안하기.
+  // 대책 ||(or 연산자)를 이용해서, 체크.
+
+  const name = undefined;
+  return name || "값이 undefined 입니다. ";
 }
 
 export default App;

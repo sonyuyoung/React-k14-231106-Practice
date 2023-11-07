@@ -30,9 +30,24 @@ function testDog() {
 }
 
 // 실행 테스트
-const testdog = new testDog();
-testdog.sound();
+// const testdog = new testDog();
+// testdog.sound();
 
 // 결론, 일반함수는 this 의 영향권이 자신이 종속된 객체를 가리킴.
 
 // 화살표 함수.
+// testDog2
+function testDog2() {
+  this.name = "멍멍이";
+  return {
+    name: "멍멍이2",
+    // 일반 함수로 사용했고, 비교군, 화살표 함수로 확인 할 예정.
+    sound: () => console.log(this.name + ": 멍멍!!!"), // 멍멍이: 멍멍!!!
+  };
+}
+
+// 실행 테스트
+const testdog2 = new testDog2();
+testdog2.sound();
+
+// 결론, 화사표함수는 this 의 영향권이 자신이 종속된 인스턴스를 가리킴.

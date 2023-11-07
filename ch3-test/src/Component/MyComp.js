@@ -5,9 +5,13 @@ import React from "react";
 const MyComp = (props) => {
   return (
     <div>
-      <h1>테스트 props 객체 안에 속성들 중에서 name 받아오기 , {props.name}</h1>
+      <h1>테스트 props 객체 안에 속성들 중에서 name 받아오기 : {props.name}</h1>
       <h1>
-        테스트 props 객체 안에 속성들 중에서 password 받아오기 ,{props.password}
+        테스트 props 객체 안에 속성들 중에서 password 받아오기 :{" "}
+        {props.password}
+      </h1>
+      <h1>
+        테스트 props 객체 안에 속성들 중에서 child 받아오기 : {props.children}
       </h1>
     </div>
   );

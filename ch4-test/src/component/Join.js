@@ -14,6 +14,7 @@ const Join = () => {
   // 클릭 이벤트 발생시 값을 확인.
   const onClick = () => {
     alert("email: " + email + ", password : " + password);
+    setEmail("");
   };
 
   // 키보드에서 엔터 키 입력시, 클릭 이벤트 호출 연결 확인.
@@ -26,6 +27,7 @@ const Join = () => {
   return (
     <div>
       <h1>이벤트 확인 중. </h1>
+      <h2>{email}</h2>
       <input
         type="text"
         name="email"

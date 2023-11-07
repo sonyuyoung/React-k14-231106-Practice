@@ -18,7 +18,8 @@ function App() {
       <ClassTest />
       <Test33 />
       {/* 자식 컴포넌트에게 props 라는 속성 객체를 이용해서 이름을 전달하기 */}
-      <MyComp name="이상용" password="1234" />
+      {/* <MyComp name="이상용" password="1234" /> */}
+      <MyComp />
     </>
   );
 }

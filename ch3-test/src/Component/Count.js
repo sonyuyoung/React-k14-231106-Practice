@@ -28,7 +28,21 @@ class Count extends Component {
             this.setState({ number: number + 1 });
             // 한번 클릭 씩 , 값이 2개가 증가하도록 설정.
             // 안되는 문제점 확인. (동작여부.)
-            this.setState({ number: this.state.number + 1 });
+            // 바로 반영이 안되는 문제점.
+            // 해결책으로 , 객체 대신에 여기에 함수로 대체함.
+            // this.setState({ number: this.state.number + 1 });
+            // 해결책
+            this.setState(
+              (prevState) => {
+                return {
+                  number: prevState.number + 1,
+                };
+                //state 값 변경 후, 특정 함수 호출 하기.
+              },
+              () => {
+                console.log("state 값 변경후 , 함수 호출했어요.");
+              }
+            );
           }}
         >
           +1

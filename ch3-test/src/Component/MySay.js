@@ -23,6 +23,7 @@ const MySay = () => {
       </h1>
       <button onClick={onClickUsername}>username 확인하기</button>
       <button onClick={onClickPassword}>password 확인하기</button>
+      <br />
       <button style={{ color: "red" }} onClick={() => setColor("red")}>
         빨간색꾸미기
       </button>

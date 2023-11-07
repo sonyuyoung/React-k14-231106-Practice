@@ -9,6 +9,7 @@ import MyComp from "./Component/MyComp";
 
 import MyCompPublicFunction from "./Component/MyCompPublicFunction";
 import Count from "./Component/Count";
+import MyCount from "./Component/MyCount";
 
 // 부모 컴포넌트
 function App() {
@@ -44,7 +45,11 @@ function App() {
       {/* <MyCompPublicFunction password="12345678">
         이상용 어린이
       </MyCompPublicFunction>*/}
-      <Count />
+      {/* 클래스형 컴포넌트 */}
+      {/* <Count /> */}
+
+      {/* 함수형 컴포넌트  */}
+      <MyCount />
     </>
   );
 }

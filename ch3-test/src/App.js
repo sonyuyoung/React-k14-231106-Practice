@@ -27,7 +27,13 @@ function App() {
       {/* 자식 컴포넌트에게 children 라는 속성으로 전달하기.  */}
       {/* <MyComp>여기 값이 children 속성임. </MyComp> */}
 
-      <MyComp name="이상용" password="12345678">
+      {/* <MyComp name="이상용" password="12345678">
+        이상용 어린이
+      </MyComp> */}
+
+      {/* props 타입 확인하기.  */}
+
+      <MyComp name={11111} password="12345678">
         이상용 어린이
       </MyComp>
     </>

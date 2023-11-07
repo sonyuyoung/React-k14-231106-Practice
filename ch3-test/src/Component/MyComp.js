@@ -32,8 +32,11 @@ MyComp.defaultProps = {
 };
 
 // props 의 타입 확인.
-MyComp.protoTypes = {
-  name: PropTypes.string,
+// 오타 확인 : MyComp.protoTypes -> MyComp.propTypes
+MyComp.propTypes = {
+  // 기본값 타입,
+  // 유니크 , 반드시 존재 확인하기.
+  name: PropTypes.string.isRequired,
   password: PropTypes.string,
 };
 

@@ -35,7 +35,7 @@ for (let i = 0; i < nextArr.length; i++) {
       nextArr[i] +
       "key: " +
       nextArr[i].id +
-      " , valeu: " +
+      " , value: " +
       nextArr[i].value
   );
 }
@@ -44,11 +44,11 @@ console.log("==============================");
 // 출력 걸어두기.
 for (let i = 0; i < nextArr2.length; i++) {
   console.log(
-    "concat 확인. nextArr2: " +
+    "filter 확인. nextArr2: " +
       nextArr2[i] +
       "key: " +
       nextArr2[i].id +
-      " , valeu: " +
+      " , value: " +
       nextArr2[i].value
   );
 }
@@ -57,11 +57,11 @@ console.log("==============================");
 // 출력 걸어두기2
 for (let i = 0; i < nextArr3.length; i++) {
   console.log(
-    "concat 확인. nextArr3: " +
+    "map 확인. nextArr3: " +
       nextArr3[i] +
       "key: " +
       nextArr3[i].id +
-      " , valeu: " +
+      " , value: " +
       nextArr3[i].value
   );
 }

@@ -24,8 +24,12 @@ function App() {
       {/* 부모 컴포넌트에서 props 설정이 없을 때, 기본값 사용하기 */}
       {/* <MyComp /> */}
 
-      {/* 자식 컴포넌트에게 child 라는 속성으로 전달하기.  */}
-      <MyComp>여기 값이 child 속성임. </MyComp>
+      {/* 자식 컴포넌트에게 children 라는 속성으로 전달하기.  */}
+      {/* <MyComp>여기 값이 children 속성임. </MyComp> */}
+
+      <MyComp name="이상용" password="12345678">
+        이상용 어린이
+      </MyComp>
     </>
   );
 }

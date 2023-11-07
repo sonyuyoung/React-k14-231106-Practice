@@ -27,7 +27,7 @@ const MyComp = ({ name, password, children }) => {
 
 // props 기본값 정하기.
 MyComp.defaultProps = {
-  name: "기본 이름",
+  // name: "기본 이름",
   password: " 기본 1234",
 };
 
@@ -35,7 +35,8 @@ MyComp.defaultProps = {
 // 오타 확인 : MyComp.protoTypes -> MyComp.propTypes
 MyComp.propTypes = {
   // 기본값 타입,
-  // 유니크 , 반드시 존재 확인하기.
+  // not null 반드시 존재 확인하기.
+  // props 의 명세서 처럼, 어떤 props 가있는지 존재 여부 , 타입을 확인을 할수 있다.
   name: PropTypes.string.isRequired,
   password: PropTypes.string,
 };

@@ -1,37 +1,30 @@
+import logo from "./logo.svg";
 import "./App.css";
-import { Button, Space, DatePicker, version } from "antd";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// 자식 컴포넌트요소
+// 자식 컴포넌트 요소
 import Join from "./component/Join";
 import Main from "./component/Main";
+import { Button, Space, DatePicker, version } from "antd";
+// 페이지 이동을 위한 설정 1
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyCount from "./component/MyCount";
+import RefPracticeScrollTest from "./ch_5_component/RefPracticeScrollTest";
 
-{
-  /* antd 튜토리얼 샘플 가져오기 테스트 */
-}
 function App() {
   return (
+    // 페이지 이동을 위한 설정 2. 전체 요소를
+    //BrowserRouter 로 감싸기.
+    // 구성요소는 Routes -> Route 로 구성할 예정.
     <BrowserRouter>
       <Routes>
-        {/* 메인으로 사용할 주소 */}
+        {/* 메인으로 사용할(index->주소에서 : / ) 페이지를 App 또는 Main.js 로 해도 됨 */}
         <Route index element={<Main />} />
-        {/* 메인에서 추가했던 join */}
-        <Route path="join" element={<Join />}></Route>
-        {/* 주소: http://localhost:3000/join-> 이동할 컴포넌트 element={<Join />} : 진짜 Join.js */}
+        {/* 주소: http://localhost:3000/join -> 해당 페이지 안내 : element={<이동할 컴포넌트>} */}
+        <Route path="join" element={<Join />} />
+        <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
+        <Route path="mycount" element={<MyCount />}></Route>
       </Routes>
-
-      <div className="App">
-        <header className="App-header">
-          {/* antd 튜토리얼 샘플 가져오기 테스트 */}
-
-          <Space>
-            <DatePicker />
-            <Button type="primary">Primary Button</Button>
-          </Space>
-
-          <Join />
-        </header>
-      </div>
     </BrowserRouter>
   );
 }
+
 export default App;

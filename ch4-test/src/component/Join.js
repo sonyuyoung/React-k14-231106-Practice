@@ -1,6 +1,7 @@
 //회원가입 창 처럼 만들기.
 import React from "react";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Join = () => {
   //useState 이용해서, 현재 상태값 , 세터 함수 정의하기.

@@ -34,9 +34,18 @@ const DataListKeyAddDelTest = () => {
 
   //리스트 출력하기. -> 리스트 컴포넌트, 리스트의 아이템 컴포넌트
   // key 값 의무 사항입니다. 하지만, 오류 먼저 확인후 설정 하기.
-  const testArrList = testArr.map((item) => <li key={item.id}>{item.text}</li>);
+  // 아이템 요소를 출력 하는 부분
 
-  // 데이터 추가.
+  // 삭제 기능 추가하기.
+  // 여기에 더블 클릭 이벤트를 넣고,
+  // 삭제하는 기능도 추가하면됨.
+  const testArrList = testArr.map((item) => (
+    <li key={item.id} onDoubleClick={() => onRemoveText(item.id)}>
+      {item.text}
+    </li>
+  ));
+
+  // 데이터 추가. 배열의 내장 함수 concat 이용.
 
   // text input 부분이 변경시, 세터 함수로 변경사항을 업데이트 함.
   const onChangeText = (e) => setInputText(e.target.value);
@@ -58,6 +67,24 @@ const DataListKeyAddDelTest = () => {
     setTestArr(nextTestArr);
     // 입력 완료 했으니, 입력창 비우기.
     setInputText("");
+  };
+
+  // 데이터 삭제하기, 해당 아이템 요소 더블 클릭해서 삭제하기.
+  // filter 이용하기.
+  const onRemoveText = (id) => {
+    // item.id !== id -> 틀리면 참, 같으면 거짓
+    // item.id == id -> 같으면 참, 다르면 거짓.
+    // filter(콜백함수(조건)),
+    // filter 조건이 참이되는 요소만 뽑아서, 새로운 배열을 만든다.
+    //예) 원본 id : 1~4 , 삭제할 아이디가 : 3번
+    // 1~4 검사
+    // 1 !== 3 : true -> 1 필터됨, 결과 배열 [1]
+    // 2 !== 3 : true -> 2 필터됨, 결과 배열 [1,2]
+    // 3 !== 3 : false -> 3 필터 안됨, 결과 배열 [1,2], 포함 안됨.
+    // 4 !== 3 : true -> 4 필터됨, 결과 배열 [1,2,4]
+    const nextTestArr2 = testArr.filter((item) => item.id !== id);
+    // 필터가 된, 원소를 제거한 새로운 배열을 업데이트 , 세터로
+    setTestArr(nextTestArr2);
   };
 
   return (

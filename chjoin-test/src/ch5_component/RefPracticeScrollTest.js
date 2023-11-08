@@ -4,6 +4,7 @@
 // 2) 스크롤에 ref  속성을 달아서, 맨 아래로 가기.
 // 3) 특정 input 공간에 , 버튼을 클릭시 focus 확인하는 정도.
 
+import { Button } from "antd";
 import React, { useRef } from "react";
 // css 사용하기 위한 도구.
 import styled from "styled-components";
@@ -30,9 +31,20 @@ const RefPracticeScrollTest = () => {
 
   return (
     <div>
-      <StyleBox>
+      {/* 박스의 스크롤에 ref 속성 달기 */}
+      <StyleBox ref={box}>
         <InnerStyle></InnerStyle>
       </StyleBox>
+      {/* onClick 속성으로 해당 스크롤을 설정해서, 
+      그 스크롤의 높이를 조정하기. */}
+      <Button
+        title="맨밑으로"
+        type="primary"
+        danger
+        onClick={() => (box.current.scrollTop = 350)}
+      >
+        맨밑으로
+      </Button>
     </div>
   );
 };

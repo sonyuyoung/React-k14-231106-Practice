@@ -109,7 +109,7 @@ const Main = () => {
           <br />
           <Button
             title="list 키 설정의무 확인 및 데이터 추가 삭제"
-            type="link"
+            type="primary"
             onClick={() => {
               navigate("/listKeyDataAddDel");
             }}

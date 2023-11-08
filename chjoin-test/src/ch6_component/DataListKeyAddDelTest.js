@@ -14,6 +14,7 @@
 // No SQL -> MongoDB (Object ID) -> PK 사용하면 됨.
 // 결론, 데이터 연동해서, 리스트 출력시 key 설정 반드시 해야함.
 
+import { Button } from "antd";
 import React, { useState } from "react";
 
 const DataListKeyAddDelTest = () => {
@@ -33,10 +34,38 @@ const DataListKeyAddDelTest = () => {
 
   //리스트 출력하기. -> 리스트 컴포넌트, 리스트의 아이템 컴포넌트
   // key 값 의무 사항입니다. 하지만, 오류 먼저 확인후 설정 하기.
-  const testArrList = testArr.map((item) => <li>{item.id}</li>);
+  const testArrList = testArr.map((item) => <li key={item.id}>{item.id}</li>);
+
+  // 데이터 추가.
+
+  // text input 부분이 변경시, 세터 함수로 변경사항을 업데이트 함.
+  const onChangeText = (e) => setInputText(e.target.value);
+
+  // onClick 으로 , 데이터 추가 반영하기 로직.
+  // 설정. 후 붙이기 작업.
+  const onClickText = () => {
+    const nextTestArr = testArr.concat(
+      // 기본값 id : 5
+      {
+        id: nextId,
+        // inputText , 입력된 내용이 계속 변경을 감지하면서, 최종 단어가 업데이가 됨.
+        text: inputText,
+      }
+    );
+    // id 추가 되어서 1씩 증가하는 로직
+    setNextId(nextId + 1);
+    // 배열에 새로운 요소가 추가된 배열을 업데이트
+    setTestArr(nextTestArr);
+    // 입력 완료 했으니, 입력창 비우기.
+    setInputText("");
+  };
 
   return (
     <div>
+      <input value={inputText} onChange={onChangeText}></input>
+      <Button type="primary" onClick={onClickText}>
+        추가하기
+      </Button>
       <ul>{testArrList}</ul>
     </div>
   );

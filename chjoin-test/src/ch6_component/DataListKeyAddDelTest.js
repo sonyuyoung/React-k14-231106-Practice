@@ -34,7 +34,7 @@ const DataListKeyAddDelTest = () => {
 
   //리스트 출력하기. -> 리스트 컴포넌트, 리스트의 아이템 컴포넌트
   // key 값 의무 사항입니다. 하지만, 오류 먼저 확인후 설정 하기.
-  const testArrList = testArr.map((item) => <li key={item.id}>{item.id}</li>);
+  const testArrList = testArr.map((item) => <li key={item.id}>{item.text}</li>);
 
   // 데이터 추가.
 

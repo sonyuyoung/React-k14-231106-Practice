@@ -87,9 +87,21 @@ const DataListKeyAddDelTest = () => {
     setTestArr(nextTestArr2);
   };
 
+  // 키 이벤트 추가 해보기.
+  // 키보드에서 엔터 키 입력시, 클릭 이벤트 호출 연결 확인.
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onClickText();
+    }
+  };
+
   return (
     <div>
-      <input value={inputText} onChange={onChangeText}></input>
+      <input
+        value={inputText}
+        onChange={onChangeText}
+        onKeyPress={onKeyPress}
+      ></input>
       <Button type="primary" onClick={onClickText}>
         추가하기
       </Button>

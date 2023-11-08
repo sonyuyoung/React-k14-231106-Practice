@@ -98,6 +98,15 @@ const Main = () => {
           >
             스크롤 Ref 이동
           </Button>
+          <Button
+            title="listKeyDataAddDel 이동 "
+            type="primary"
+            onClick={() => {
+              navigate("/listKeyDataAddDel");
+            }}
+          >
+            키설정의무화 확인 데이터 추가 삭제이동
+          </Button>
         </Container>
       </div>
     </Wrapper>

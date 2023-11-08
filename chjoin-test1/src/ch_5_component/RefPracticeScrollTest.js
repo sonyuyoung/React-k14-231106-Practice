@@ -42,7 +42,7 @@ const RefPracticeScrollTest = () => {
       <Button
         title="맨위로"
         type="primary"
-        onClick={() => (Box.current.scrollTop = -350)}
+        onClick={() => (Box.current.scrollTop = 0)}
       >
         맨위로
       </Button>

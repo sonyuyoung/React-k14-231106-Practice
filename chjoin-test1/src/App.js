@@ -8,6 +8,7 @@ import { Button, Space, DatePicker, version } from "antd";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyCount from "./component/MyCount";
 import RefPracticeScrollTest from "./ch_5_component/RefPracticeScrollTest";
+import DataListKeyAddDelTest from "./ch6_component/DataListKeyAddDelTest";
 
 function App() {
   return (
@@ -20,8 +21,10 @@ function App() {
         <Route index element={<Main />} />
         {/* 주소: http://localhost:3000/join -> 해당 페이지 안내 : element={<이동할 컴포넌트>} */}
         <Route path="join" element={<Join />} />
+
         <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
         <Route path="mycount" element={<MyCount />}></Route>
+        <Route path="listKeyDataAddDel" element={<DataListKeyAddDelTest />} />
       </Routes>
     </BrowserRouter>
   );

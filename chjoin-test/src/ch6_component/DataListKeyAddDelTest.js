@@ -13,3 +13,33 @@
 // SQL->RDBMS -> 각 테이블 마다, PK 존재함. 그래서, 이 값을 인덱스로 사용하면됨.
 // No SQL -> MongoDB (Object ID) -> PK 사용하면 됨.
 // 결론, 데이터 연동해서, 리스트 출력시 key 설정 반드시 해야함.
+
+import React, { useState } from "react";
+
+const DataListKeyAddDelTest = () => {
+  // test : 상태값 타입 : 배열 , 요소의 타입 : 객체
+  // 초깃값 으로 배열로 기본 4개요소 넣고, 더미 데이터
+  const [testArr, setTestArr] = useState([
+    { id: 1, text: "스프링" },
+    { id: 2, text: "부트" },
+    { id: 3, text: "안드로이드" },
+    { id: 4, text: "리액트" },
+  ]);
+
+  // id, text 관련해서 input 태그를 설정.
+  const [inputText, setInputText] = useState("");
+  // 기본 아이디 4까지 사용했고, 그 이후의 id 값 5부터.
+  const [nextId, setNextId] = useState(5);
+
+  //리스트 출력하기. -> 리스트 컴포넌트, 리스트의 아이템 컴포넌트
+  // key 값 의무 사항입니다. 하지만, 오류 먼저 확인후 설정 하기.
+  const testArrList = testArr.map((item) => <li>{item.id}</li>);
+
+  return (
+    <div>
+      <ul>{testArrList}</ul>
+    </div>
+  );
+};
+
+export default DataListKeyAddDelTest;

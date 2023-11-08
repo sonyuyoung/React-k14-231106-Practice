@@ -15,7 +15,15 @@ const Main = () => {
     <div>
       <h1>메인 화면입니다.</h1>
       {/* join 컴포넌트로 이동하는 버튼 하나 추가 */}
-      <Button title="회원가입 이동" onClick={navigate("/join")} />
+      <Button
+        title="회원가입 이동"
+        type="primary"
+        onClick={() => {
+          navigate("/join");
+        }}
+      >
+        회원가입 이동
+      </Button>
     </div>
   );
 };

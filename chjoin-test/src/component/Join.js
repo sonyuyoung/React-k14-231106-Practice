@@ -40,7 +40,7 @@ const Join = () => {
       // 취소가 발생했다면,
       // 기본 프로필 베이직 사진.
       setImage(
-        "https://pixabay.com/ko/vectors/%EB%B9%88-%ED%94%84%EB%A1%9C%ED%95%84-%EC%82%AC%EC%A7%84-%EB%AF%B8%EC%8A%A4%ED%84%B0%EB%A6%AC-%EB%A7%A8-973460/"
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
       );
       return;
     }

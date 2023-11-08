@@ -9,6 +9,8 @@ import { Button, Space, DatePicker, version } from "antd";
 // 페이지 이동을 위한 설정 1
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Component } from "react";
+// 스크롤 ref 테스트 컴포넌트 가져오기.
+import RefPracticeScrollTest from "./ch5_component/RefPracticeScrollTest";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Route path="join" element={<Join />} />
         {/* 추가, 3장에서 연습했던, MyComp라는 컴포넌트 페이지 이동에 추가해보기 */}
         <Route path="mycount" element={<MyCount />} />
+        <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
       </Routes>
     </BrowserRouter>
   );

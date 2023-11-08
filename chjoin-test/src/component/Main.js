@@ -94,6 +94,17 @@ const Main = () => {
           >
             mycount 이동
           </Button>
+
+          <br />
+          <Button
+            title="스크롤 ref 테스트 이동"
+            type="dashed"
+            onClick={() => {
+              navigate("/scrollRefTest");
+            }}
+          >
+            스크롤 ref 테스트 이동
+          </Button>
         </Container>
       </div>
     </Wrapper>

@@ -24,6 +24,17 @@ const Main = () => {
       >
         회원가입 이동
       </Button>
+      <br />
+      <br />
+      <Button
+        title="mycount 이동"
+        type="primary"
+        onClick={() => {
+          navigate("/mycount");
+        }}
+      >
+        mycount 이동
+      </Button>
     </div>
   );
 };

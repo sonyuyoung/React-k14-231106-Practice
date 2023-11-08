@@ -45,6 +45,14 @@ const RefPracticeScrollTest = () => {
       >
         맨밑으로
       </Button>
+
+      <Button
+        title="맨위로"
+        type="primary"
+        onClick={() => (box.current.scrollTop = 0)}
+      >
+        맨위로
+      </Button>
     </div>
   );
 };

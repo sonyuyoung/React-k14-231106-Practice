@@ -35,7 +35,8 @@ const AverageUseCallbackTest = () => {
   // 정의
   // useCallback(콜백함수, 의존성배열)
   // 의존성배열 모양 -> [] 빈배열이라서, 마운트시 한번 만 함수를 생성함.
-  const onChage = useCallback((e) => {
+  const onChange = useCallback((e) => {
+    console.log("useCallback 확인중.onChange 호출");
     setNumber(e.target.value);
   }, []);
 
@@ -49,6 +50,7 @@ const AverageUseCallbackTest = () => {
   //   setNumber("");
   // };
   const onInsert = useCallback(() => {
+    console.log("useCallback 확인중.onInsert  호출");
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber("");

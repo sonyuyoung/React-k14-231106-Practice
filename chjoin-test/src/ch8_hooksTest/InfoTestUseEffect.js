@@ -52,13 +52,17 @@ const InfoTestUseEffect = () => {
         type="primary"
         onClick={() => {
           setVisible(!visible);
+          console.log(visible);
         }}
       >
         {" "}
         {visible ? "hide" : "show"}
       </Button>
+      <div>{visible ? "true" : "false"}</div>
       <div>
-        <div style={!visible ? "" : { display: "none" }}>
+        {/* <div style={!{ visible } ? { display: "flex" } : { display: "none" }}> */}
+        <div style={{ display: !visible ? "flex" : "none" }}>
+          {/* <div style={{ display: "flex" }}> */}
           {/* 입력창인데, 값을 입력시, onChange 이벤트 핸들러 동작해서, 결과 뷰에 반영 */}
           <input value={name} onChange={onChangeName} />
           <input value={nickname} onChange={onChangeNickName} />

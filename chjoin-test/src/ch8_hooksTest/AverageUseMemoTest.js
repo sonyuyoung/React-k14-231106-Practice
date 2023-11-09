@@ -20,11 +20,14 @@
 // a : 6 , b : 4 => 10
 // a : 10 , b : 5 => 15
 import { Button } from "antd";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 //샘플 함수 : 특정 연산하는 과정을 샘플로 만들고,
 // useMemo 사용하기 전과 후의 과정을 보기.
+// 사용하기 전 : 숫자를 입력하는 과정에서도 동일한 연산을 수행.
+// 사용후 : 특정의 결과값이 변경시에만 동작하기.
 const doAverage = (numbers) => {
+  console.log("평균 계산중 -========-");
   if (numbers.length === 0) return 0;
   const sum = numbers.reduce((a, b) => a + b);
   return sum / numbers.length;
@@ -38,7 +41,7 @@ const AverageUseMemoTest = () => {
 
   // 이벤트 핸들러 추가
   const onChange = (e) => {
-    setNumber(e.targer.value);
+    setNumber(e.target.value);
   };
 
   // 숫자 추가하기.
@@ -49,10 +52,17 @@ const AverageUseMemoTest = () => {
     setNumber("");
   };
 
+  // 임의로 결과값을 만들어서 , 이값이 변경시에만, 연산 계산하기.
+  // 정의, useEffect 와 비슷함.
+  // const avgResult = useMemo(콜백함수,의존성 배열)
+  const avgResult = useMemo(() => doAverage(list), [list]);
+
   return (
     <div>
       <input value={number} onChange={onChange} />
-      <Button onClick={onInsert}>등록하기 </Button>
+      <Button type="primary" onClick={onInsert}>
+        등록하기{" "}
+      </Button>
       {/* 리액트 리스트 출력시, 키가 의무적으로 설정 주의하기. */}
       <ul>
         {list.map((value, index) => (
@@ -60,7 +70,10 @@ const AverageUseMemoTest = () => {
         ))}
       </ul>
       {/* 연산의 결과  */}
-      <div>평균값 : {doAverage(list)}</div>
+      {/* 사용하기전 */}
+      {/* <div>평균값 : {doAverage(list)}</div> */}
+      {/* useMemo 사용후  */}
+      <div>평균값 : {avgResult}</div>
     </div>
   );
 };

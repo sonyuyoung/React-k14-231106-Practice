@@ -1,31 +1,17 @@
-// useMemo,
-// : 메모 뭔가를 기록하는데, 컴포넌트 내부에서 발생하는 연산 최적화하는 방법.
-// 예) 오래 걸리는 연산을 메모 했다가, 나중에 다시 재사용하고, 변경이 발생하면
-// 그 때 다시 업데이트를 한다.
-// 예) 평균을 구하는 내용으로
-// 메모
-// 내장함수 ,concat, filter, map, 이어서 reduce , 새로운 배열을 생성.
-// 정의
-// 배열.reduce(콜백 함수, 초깃값)
-// 만약, 초깃값을 생략시, 배열의 첫번재 요소를 사용.
+// useCallback,- 성능 최적화 할 때 많이 사용.
+// :화면을 그릴 때,
+// 변경이 없는 함수를 매번 새롭게 생성을 안하고, 한번만 만들고,
+// 변경이 있는 함수는 매번 새롭게 생성을 하니, 계속 업데이트해서 새 함수 만들기.
+// 결론: 콜백 함수를 업데이트 시마다 매번 새롭게 생성할거니?
+// 예) 앞에 평균을 구하는 로직에서,
+// 함수 : onChage 변경시 , onInsert 추가할 때,
 
-// 예)
-// array = [1,2,3,4,5]
-// array.reduce((a,b) => a+b,0)
-// 의 결과값은 -> 15
-// a : 누산기,(누적된값)
-// a : 0 , b : 1 => 1
-// a : 1 , b : 2 => 3
-// a : 3 , b : 3 => 6
-// a : 6 , b : 4 => 10
-// a : 10 , b : 5 => 15
+// 평균을 구하는 useMemo에서, 사용했던 함수들을 , 업데이트 시마다, 어떻게 사용할지
+// useCallback 으로 변환하기.
+import React, { useState, useMemo, useCallback } from "react";
 import { Button } from "antd";
-import React, { useMemo, useState } from "react";
 
-//샘플 함수 : 특정 연산하는 과정을 샘플로 만들고,
-// useMemo 사용하기 전과 후의 과정을 보기.
-// 사용하기 전 : 숫자를 입력하는 과정에서도 동일한 연산을 수행.
-// 사용후 : 특정의 결과값이 변경시에만 동작하기.
+//함수1
 const doAverage = (numbers) => {
   console.log("평균 계산중 -========-");
   if (numbers.length === 0) return 0;
@@ -33,24 +19,40 @@ const doAverage = (numbers) => {
   return sum / numbers.length;
 };
 
-const AverageUseMemoTest = () => {
+const AverageUseCallbackTest = () => {
   // 숫자들을 담을 임시배열
   const [list, setList] = useState([]);
   // 숫자 타입 문자열, 연산시 정수로 변환 필요.
   const [number, setNumber] = useState("");
 
+  // 함수2 -> 변경 - useCallback
   // 이벤트 핸들러 추가
-  const onChange = (e) => {
+  // 전
+  // const onChange = (e) => {
+  //   setNumber(e.target.value);
+  // };
+  // 후
+  // 정의
+  // useCallback(콜백함수, 의존성배열)
+  // 의존성배열 모양 -> [] 빈배열이라서, 마운트시 한번 만 함수를 생성함.
+  const onChage = useCallback((e) => {
     setNumber(e.target.value);
-  };
+  }, []);
 
+  // 함수3-> 변경 - useCallback
   // 숫자 추가하기.
-  const onInsert = (e) => {
-    // 문자열 -> 정수 변환 -> 리스트에 추가해서 => 새로운 배열 생성.
+  // 전
+  // const onInsert = (e) => {
+  //   // 문자열 -> 정수 변환 -> 리스트에 추가해서 => 새로운 배열 생성.
+  //   const nextList = list.concat(parseInt(number));
+  //   setList(nextList);
+  //   setNumber("");
+  // };
+  const onInsert = useCallback(() => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber("");
-  };
+  }, [number, list]);
 
   // 임의로 결과값을 만들어서 , 이값이 변경시에만, 연산 계산하기.
   // 정의, useEffect 와 비슷함.
@@ -80,4 +82,4 @@ const AverageUseMemoTest = () => {
   );
 };
 
-export default AverageUseMemoTest;
+export default AverageUseCallbackTest;

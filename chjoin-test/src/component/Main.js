@@ -173,6 +173,16 @@ const Main = () => {
           >
             useMemoTest 테스트
           </Button>
+          <br />
+          <Button
+            title="useCallbackTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useCallbackTest");
+            }}
+          >
+            useCallbackTest 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

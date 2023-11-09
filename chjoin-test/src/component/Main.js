@@ -116,6 +116,16 @@ const Main = () => {
           >
             키 설정의무 확인 및 데이터 추가 삭제 이동
           </Button>
+          <br />
+          <Button
+            title="클래스형 컴포넌트 생명주기 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/ClassLifeCycleTest");
+            }}
+          >
+            클래스형 컴포넌트 생명주기 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

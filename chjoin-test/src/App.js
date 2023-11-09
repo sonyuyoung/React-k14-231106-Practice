@@ -12,6 +12,7 @@ import { Component } from "react";
 // 스크롤 ref 테스트 컴포넌트 가져오기.
 import RefPracticeScrollTest from "./ch5_component/RefPracticeScrollTest";
 import DataListKeyAddDelTest from "./ch6_component/DataListKeyAddDelTest";
+import LifeCycleTest from "./ch7_classLifeCycle/LifeCycleTest";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="mycount" element={<MyCount />} />
         <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
         <Route path="listKeyDataAddDel" element={<DataListKeyAddDelTest />} />
+        <Route path="ClassLifeCycleTest" element={<LifeCycleTest />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,7 @@
 //훅스 useState 먼저 확인.
 // 복습 해보기.
 // 지금부터는 모두 함수형 컴포넌트로 작업하기.
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const InfoTestUseEffect = () => {
   // state 상태, useState('초깃값') -> 결과는 2개를 반환

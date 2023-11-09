@@ -14,6 +14,7 @@ import RefPracticeScrollTest from "./ch5_component/RefPracticeScrollTest";
 import DataListKeyAddDelTest from "./ch6_component/DataListKeyAddDelTest";
 import LifeCycleTest from "./ch7_classLifeCycle/LifeCycleTest";
 import InfoTestUseState from "./ch8_hooksTest/InfoTestUseState";
+import InfoTestUseEffect from "./ch8_hooksTest/InfoTestUseEffect";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="listKeyDataAddDel" element={<DataListKeyAddDelTest />} />
         <Route path="ClassLifeCycleTest" element={<LifeCycleTest />} />
         <Route path="useStateTest" element={<InfoTestUseState />} />
+        <Route path="useEffectTest" element={<InfoTestUseEffect />} />
       </Routes>
     </BrowserRouter>
   );

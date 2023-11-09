@@ -39,8 +39,8 @@ const InfoTestUseReducer = () => {
     <div>
       <div>
         {/* 입력창인데, 값을 입력시, onChange 이벤트 핸들러 동작해서, 결과 뷰에 반영 */}
-        <input name={name} value={name} onChange={onChange} />
-        <input name={nickname} value={nickname} onChange={onChange} />
+        <input name="name" value={name} onChange={onChange} />
+        <input name="nickname" value={nickname} onChange={onChange} />
       </div>
       {/* 결과 뷰 출력 */}
       <div>

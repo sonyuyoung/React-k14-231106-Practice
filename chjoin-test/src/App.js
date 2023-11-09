@@ -25,13 +25,15 @@ class App extends Component {
       color: getRandomColor(),
     });
   };
-  return() {
-    <div>
-      <Button type="primary" onClick={this.handleClick}>
-        랜덤색상
-      </Button>
-      <LifeCycleTest color={this.state.color} />
-    </div>;
+  render() {
+    return (
+      <div>
+        <Button type="primary" onClick={this.handleClick}>
+          랜덤색상
+        </Button>
+        <LifeCycleTest color={this.state.color} />
+      </div>
+    );
   }
 }
 

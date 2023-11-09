@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RefPracticeScrollTest from "./ch5_component/RefPracticeScrollTest";
 import DataListKeyAddDelTest from "./ch6_component/DataListKeyAddDelTest";
 import LifeCycleTest from "./ch7_classLifeCycle/LifeCycleTest";
+import InfoTestUseState from "./ch8_hooksTest/InfoTestUseState";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
         <Route path="listKeyDataAddDel" element={<DataListKeyAddDelTest />} />
         <Route path="ClassLifeCycleTest" element={<LifeCycleTest />} />
+        <Route path="useStateTest" element={<InfoTestUseState />} />
       </Routes>
     </BrowserRouter>
   );

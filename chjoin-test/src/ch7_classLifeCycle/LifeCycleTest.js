@@ -21,6 +21,10 @@ class LifeCycleTest extends Component {
   myRef = null;
 
   //생성자 호출, 생명주기 1번째
+
+  // 여기서, 부모로 부터 전달 받은 props의 내용이 담겨져 있음.
+  // 초기화를 하면서, 자식 입장에서 사용이 된다.
+  // props.color 가 들어 있다.
   constructor(props) {
     // 클래스가 혼자 동작 못하고, 반드시 누군가 부모를 상속받아야함.
     // 부모를 초기화 해주기

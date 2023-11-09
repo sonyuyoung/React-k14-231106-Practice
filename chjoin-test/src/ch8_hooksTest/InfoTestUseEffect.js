@@ -29,7 +29,7 @@ const InfoTestUseEffect = () => {
       console.log("후처리 함수 호출 ");
       console.log(name);
     };
-  }, [name]); // 현재, 두번째 매개변수에 모양이 아무것도 없다. 매번 실행 확인 하기.
+  }, []); // 현재, 두번째 매개변수에 모양이 아무것도 없다. 매번 실행 확인 하기.
 
   //추가, 버튼 추가해서, visible 속성 확인.
   const [visible, setVisible] = useState(false);
@@ -58,7 +58,7 @@ const InfoTestUseEffect = () => {
         {" "}
         {visible ? "show" : "hide"}
       </Button>
-      <div>{visible ? "true" : "false"}</div>
+      <div>{visible ? "visible: true" : "visible : false"}</div>
       <div>
         {/* <div style={!{ visible } ? { display: "flex" } : { display: "none" }}> */}
         <div style={{ display: !visible ? "flex" : "none" }}>

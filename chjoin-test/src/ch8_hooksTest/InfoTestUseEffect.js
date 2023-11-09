@@ -1,6 +1,7 @@
 //훅스 useState 먼저 확인.
 // 복습 해보기.
 // 지금부터는 모두 함수형 컴포넌트로 작업하기.
+import { Button } from "antd";
 import React, { useState, useEffect } from "react";
 
 const InfoTestUseEffect = () => {
@@ -22,7 +23,16 @@ const InfoTestUseEffect = () => {
       name,
       nickname,
     });
-  }); // 현재, 두번째 매개변수에 모양이 아무것도 없다. 매번 실행 확인 하기.
+    // 후처리 함수 추가하기.
+    // 문법 : return () => {수행할 로직}
+    return () => {
+      console.log("후처리 함수 호출 ");
+      console.log(name);
+    };
+  }, [name]); // 현재, 두번째 매개변수에 모양이 아무것도 없다. 매번 실행 확인 하기.
+
+  //추가, 버튼 추가해서, visible 속성 확인.
+  const [visible, setVisible] = useState(false);
 
   // 이벤트 핸들러 추가
   // 1. 이름 캐멀케이스 표기법, 2. 인자로는 함수 형태로 전달.
@@ -37,24 +47,35 @@ const InfoTestUseEffect = () => {
   // 리액트 컴포넌트는 대문자 시작,
   // 기존 DOM , 소문자 태그.
   return (
-    <div>
+    <>
+      <Button
+        type="primary"
+        onClick={() => {
+          setVisible(!visible);
+        }}
+      >
+        {" "}
+        {visible ? "hide" : "show"}
+      </Button>
       <div>
-        {/* 입력창인데, 값을 입력시, onChange 이벤트 핸들러 동작해서, 결과 뷰에 반영 */}
-        <input value={name} onChange={onChangeName} />
-        <input value={nickname} onChange={onChangeNickName} />
+        <div style={!visible ? "" : { display: "none" }}>
+          {/* 입력창인데, 값을 입력시, onChange 이벤트 핸들러 동작해서, 결과 뷰에 반영 */}
+          <input value={name} onChange={onChangeName} />
+          <input value={nickname} onChange={onChangeNickName} />
+        </div>
+        {/* 결과 뷰 출력 */}
+        <div>
+          <h1>
+            이름: <b>{name}</b>
+          </h1>
+        </div>
+        <div>
+          <h1>
+            닉네임: <b>{nickname}</b>
+          </h1>
+        </div>
       </div>
-      {/* 결과 뷰 출력 */}
-      <div>
-        <h1>
-          이름: <b>{name}</b>
-        </h1>
-      </div>
-      <div>
-        <h1>
-          닉네임: <b>{nickname}</b>
-        </h1>
-      </div>
-    </div>
+    </>
   );
 };
 

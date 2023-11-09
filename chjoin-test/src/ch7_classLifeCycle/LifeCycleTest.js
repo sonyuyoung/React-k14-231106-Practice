@@ -63,7 +63,7 @@ class LifeCycleTest extends Component {
   // 업데이트의 4번째 호출 getSnapshotBeforeUpdate
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log(
-      "하나뿐 : componentWillUnmount 호출. ",
+      "스냅샷확인 : getSnapshotBeforeUpdate 호출. ",
       prevProps.color,
       this.props.color
     );

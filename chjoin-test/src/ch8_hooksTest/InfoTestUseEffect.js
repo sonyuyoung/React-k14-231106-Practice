@@ -56,7 +56,7 @@ const InfoTestUseEffect = () => {
         }}
       >
         {" "}
-        {visible ? "hide" : "show"}
+        {visible ? "show" : "hide"}
       </Button>
       <div>{visible ? "true" : "false"}</div>
       <div>

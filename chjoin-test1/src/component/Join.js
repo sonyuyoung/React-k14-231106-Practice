@@ -1,6 +1,7 @@
 //회원가입 창 처럼 만들기.
 import React from "react";
 import { useState, useRef } from "react";
+import { Button } from "antd";
 
 //useRef : HTML의 특정 요소에 접근하기위한 id 설정.
 // 뷰를 선택하는 도구.
@@ -15,7 +16,7 @@ import { useState, useRef } from "react";
 // Avatar , 프로필 이미지 뷰 -> 결과뷰로 사용함.
 // 해당 뷰를 클릭해서, 파일 선택 하는 기능 구현.
 // 선택 후 결과 화면 보여주기.
-import { Avatar, Button } from "antd";
+import { Avatar } from "antd";
 
 const Join = () => {
   //프로필 이미지 작업

@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 //회원가입 창 처럼 만들기.
 import React from "react";
+import { Button } from "antd";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import { Component } from "react";
 // import { useNavigate } from "react-router-dom";
@@ -48,15 +49,13 @@ const Container = styled.div`
   }
 `;
 const Join = () => {
+  const navigate = useNavigate();
   //useState 이용해서, 현재 상태값 , 세터 함수 정의하기.
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [password, setPassword] = useState("");
-  const [password, setPassword] = useState("");
-  const [password, setPassword] = useState("");
 
   const onChangeEmail = (e) => setEmail(e.target.value);
-  const onChangePassword = (e) => setEmail(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
   // 클릭이벤트 발생시 값을 확인
   const onClick = () => {
     alert("email : " + email + ",password : " + password);
@@ -71,7 +70,7 @@ const Join = () => {
   return (
     <div>
       <Wrapper>
-        <h1 className="sign"> Sign In </h1>
+        <h1 className="sign"> Login</h1>
         <Container>
           <form>
             <LgF>
@@ -94,13 +93,21 @@ const Join = () => {
                 onKeyPress={onKeyPress}
               />
 
-              <button
-                class="btn btn-md btn-primary btn-block"
-                onClick={onClick}
-                type="submit"
-              >
+              <Button type="primary" onClick={onClick}>
                 Sign in
-              </button>
+              </Button>
+
+              <Button
+                type="primary"
+                danger
+                class="button2"
+                title="회원가입 이동"
+                onClick={() => {
+                  navigate("/join1");
+                }}
+              >
+                Sign Up
+              </Button>
             </LgF>
           </form>
         </Container>

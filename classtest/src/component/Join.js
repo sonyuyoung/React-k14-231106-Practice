@@ -1,7 +1,7 @@
 //회원가입 창 처럼 만들기.
 import React from "react";
 import { useState, useRef } from "react";
-
+import styled from "styled-components";
 //useRef : HTML의 특정 요소에 접근하기위한 id 설정.
 // 뷰를 선택하는 도구.
 
@@ -17,6 +17,36 @@ import { useState, useRef } from "react";
 // 선택 후 결과 화면 보여주기.
 import { Avatar, Button } from "antd";
 
+//Wrapper 라고 해서 블록 부분 설정.
+const Wrapper = styled.div`
+  padding: 20px;
+  width: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "NexonLv1Gothic";
+  margin-top: 50px;
+`;
+//로그인폼
+const LgF = styled.div`
+  width: 70%;
+  margin: 0 auto;
+`;
+// Container 만들기.
+const Container = styled.div`
+  width: 100%;
+  max-width: 720px;
+  margin-left: 20px;
+  // & : 현재 태그
+  // div 태그 하위의 자식 태그를 마지막 자식 태그를 제외하고
+  // 각 요소의 마진 바텀을 16 px 씩 간격을 주겠다.
+  & {
+    :not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+`;
 const Join = () => {
   //프로필 이미지 작업
   //Image : 상태값, 선택된 사진을
@@ -127,58 +157,62 @@ const Join = () => {
   };
 
   return (
-    <div>
-      <h1>이벤트 확인 중. </h1>
-      {/* 프로필 이미지 아바타 뷰 사용 */}
-      <Avatar
-        src={Image}
-        size={200}
-        //적용, 해당 이미지 클릭이 되면,
+    <Wrapper>
+      <div>
+        <h1>sign In</h1>
+        {/* 프로필 이미지 아바타 뷰 사용 */}
+        <Avatar
+          src={Image}
+          size={200}
+          //적용, 해당 이미지 클릭이 되면,
 
-        // 설정3, 적용
-        // 밑에 있던, input 요소를 클릭하는 것과 동일 효과.
-        onClick={() => fileInput.current.click()}
-      />
-      <input
-        type="file"
-        style={{ display: "none" }}
-        accept="image/jpg, image/png, image/jpeg"
-        name="profileImg"
-        onChange={onChangeImage}
-        //  설정2
-        ref={fileInput}
-      />
+          // 설정3, 적용
+          // 밑에 있던, input 요소를 클릭하는 것과 동일 효과.
+          onClick={() => fileInput.current.click()}
+        />
+        <input
+          type="file"
+          style={{ display: "none" }}
+          accept="image/jpg, image/png, image/jpeg"
+          name="profileImg"
+          onChange={onChangeImage}
+          //  설정2
+          ref={fileInput}
+        />
 
-      <h2>이메일 : {email}</h2>
-      <h2>패스워드 : {password}</h2>
-      <input
-        type="text"
-        name="email"
-        placeholder="이메일 입력해주세요."
-        value={email}
-        // 방법1
-        // onChange={onChangeEmail}
-        // 방법2
-        onChange={onChangeForm}
-        onKeyPress={onKeyPress}
-      />
-      <br />
-      <input
-        type="text"
-        name="password"
-        placeholder="패스워드를 입력해주세요."
-        value={password}
-        // 방법1
-        // onChange={onChangePassword}
-        // 방법2
-        onChange={onChangeForm}
-        onKeyPress={onKeyPress}
-      />
-      <br />
-      <Button onClick={onClick} type="primary">
-        회원가입
-      </Button>
-    </div>
+        <h5>이메일 : {email}</h5>
+        <h5>패스워드 : {password}</h5>
+        <input
+          class="form-control"
+          type="text"
+          name="email"
+          placeholder="이메일 입력해주세요."
+          value={email}
+          // 방법1
+          // onChange={onChangeEmail}
+          // 방법2
+          onChange={onChangeForm}
+          onKeyPress={onKeyPress}
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          name="password"
+          placeholder="패스워드를 입력해주세요."
+          value={password}
+          // 방법1
+          // onChange={onChangePassword}
+          // 방법2
+          onChange={onChangeForm}
+          onKeyPress={onKeyPress}
+        />
+
+        <Button onClick={onClick} type="primary">
+          회원가입
+        </Button>
+      </div>
+    </Wrapper>
   );
 };
 

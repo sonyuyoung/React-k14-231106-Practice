@@ -39,6 +39,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: pink;
 `;
 
 // Container 만들기.
@@ -106,6 +107,107 @@ const Main = () => {
             }}
           >
             키설정의무화 확인 데이터 추가 삭제이동
+          </Button>
+
+          <br />
+          <Button
+            title="클래스형 컴포넌트 생명주기 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/ClassLifeCycleTest");
+            }}
+          >
+            클래스형 컴포넌트 생명주기 테스트
+          </Button>
+
+          <br />
+          <Button
+            title="useStateTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useStateTest");
+            }}
+          >
+            useStateTest 테스트
+          </Button>
+          <Button
+            title="useEffectTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useEffectTest");
+            }}
+          >
+            useEffectTest 테스트
+          </Button>
+          <Button
+            title="countUseReducerTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useReducerTest");
+            }}
+          >
+            countUseReducerTest 테스트
+          </Button>
+          <Button
+            title="useReducerTest2 테스트 "
+            type="primary"
+            danger
+            onClick={() => {
+              navigate("/useReducerTest2");
+            }}
+          >
+            useReducerTest2 테스트
+          </Button>
+          <Button
+            title="useAverageMemo 테스트 "
+            type="primary"
+            danger
+            onClick={() => {
+              navigate("/useAverageMemo");
+            }}
+          >
+            useAverageMemo 테스트
+          </Button>
+          <Button
+            title="useCallback 테스트 "
+            type="primary"
+            danger
+            onClick={() => {
+              navigate("/useCallback");
+            }}
+          >
+            useCallback 테스트
+          </Button>
+          <Button
+            title="UseRefTest 테스트 "
+            type="primary"
+            danger
+            onClick={() => {
+              navigate("/UseRefTest ");
+            }}
+          >
+            UseRefTest 테스트
+          </Button>
+          <br />
+          <Button
+            title="useParamsTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useParamsTest ");
+            }}
+          >
+            useParamsTest : 주소에/숫자붙이기
+          </Button>
+
+          <br />
+          <Button
+            title="customHooksTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/customHooksTest");
+            }}
+          >
+            customHooksTest 테스트
           </Button>
         </Container>
       </div>

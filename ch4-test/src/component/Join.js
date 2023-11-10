@@ -24,7 +24,6 @@ const Join = () => {
 
   return (
     <div>
-      <h4>이벤트확인중</h4>
       <input
         type="text"
         name="email"

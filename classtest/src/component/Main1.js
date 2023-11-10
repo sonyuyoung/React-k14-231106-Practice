@@ -49,6 +49,55 @@ const Main1 = () => {
         >
           Sign Up
         </Button>
+        <br></br>
+        <Button
+          class="useStateTest"
+          title="useStateTest"
+          onClick={() => {
+            navigate("/useStateTest");
+          }}
+        >
+          useStateTest 1번
+        </Button>
+        <br></br>
+        <Button
+          class="useEffectTest"
+          title="useEffectTest"
+          onClick={() => {
+            navigate("/useEffectTest");
+          }}
+        >
+          useEffectTest 1번
+        </Button>
+        <br />
+        <Button
+          class="useReducerTest"
+          title="useReducerTest"
+          onClick={() => {
+            navigate("/useReducerTest");
+          }}
+        >
+          useReducerTest 1번
+        </Button>
+        <br />
+        <Button
+          class="useInfoReducerTest"
+          title="useInfoReducerTest"
+          onClick={() => {
+            navigate("/useInfoReducerTest");
+          }}
+        >
+          useInfoReducerTest 2번
+        </Button>
+        <Button
+          class="averageUserMemo"
+          title="averageUserMemo"
+          onClick={() => {
+            navigate("/averageUserMemo");
+          }}
+        >
+          useInfoReducerTest
+        </Button>
       </Wrapper>
     </div>
   );

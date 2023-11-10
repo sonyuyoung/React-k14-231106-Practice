@@ -25,7 +25,7 @@ const DataListKeyAddDelTest = () => {
   // 리스트 출력하기->리스트 컴포넌트 , 리스트의 아이템 컴포넌트
 
   // map을제외하고 모두 임의의 밴수
-  //여기에 더블클릭 이벤트를 넣고 ,
+  // 여기에 더블클릭 이벤트를 넣고 ,
   // 삭제기능 추가하면됨
   const testArrList = testArr.map((item) => (
     <li key={item.id} onDoubleClick={() => onRemoveText(item.id)}>

@@ -10,17 +10,28 @@ import MyCount from "./component/MyCount";
 import RefPracticeScrollTest from "./ch_5_component/RefPracticeScrollTest";
 import DataListKeyAddDelTest from "./ch6_component/DataListKeyAddDelTest";
 import LifeCycleTest from "./ch7_classLifeCycle/LifeCycleTest";
-import InfoTestUseState1 from "./ch8_hooksTest/InfoTestUseState1";
-import InfoTestUseEffect from "./ch8_hooksTest/InfoTestUseEffect";
-import CountUseReducerTest from "./ch8_hooksTest/CountUseReducerTest";
-import CountUseReducer from "./ch8_hooksTest/CountUseReducer";
-import AverageUserMemo from "./ch8_hooksTest/AverageUserMemo";
-import AverageUseCallbackTest from "./ch8_hooksTest/AverageUseCallbackTest";
-import AverageUseRefTest from "./ch8_hooksTest/AverageUseRefTest";
-import AverageUseParamsTest8 from "./ch8_hooksTest/AverageUseParamsTest8";
-import InfoTestCustomHooks9 from "./ch8_hooksTest/InfoTestCustomHooks9";
+import { useState } from "react";
 
 function App() {
+  // 색상을 랜덤하게 변경 시켜서, 이전 상태와 props , 스냅샷 확인.
+  function getRandomColor() {
+    // 0~1 사이에 숫자에서, 16777215 이만큼 : RGB코드 #00ff00:16x16x16x16x16x16=16^6
+    // 0~16777215 사이의 값을 랜덤하게 출력하기.
+    // 출력의 모양은 16진수 : 0~f,
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
+  // 부모 App -> 자식 컴포넌트로, props에 color 전달하기.
+  // 초깃값 상태, state
+  const [color, setcolor] = useState("#000000");
+  state = {
+    color: "#000000",
+  };
+  // 자식에게 색깔을 전달하기 위해서, 이벤트 함수를 수행.
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
   return (
     // 페이지 이동을 위한 설정 2. 전체 요소를
     //BrowserRouter 로 감싸기.
@@ -35,16 +46,8 @@ function App() {
         <Route path="scrollRefTest" element={<RefPracticeScrollTest />} />
         <Route path="mycount" element={<MyCount />}></Route>
         <Route path="listKeyDataAddDel" element={<DataListKeyAddDelTest />} />
-        <Route path="useStateTest" element={<InfoTestUseState1 />} />
-        <Route path="useEffectTest" element={<InfoTestUseEffect />} />
-        <Route path="useReducerTest" element={<CountUseReducerTest />} />
-        <Route path="useReducerTest2" element={<CountUseReducer />} />
-        <Route path="useAverageMemo" element={<AverageUserMemo />} />
-        <Route path="useCallback" element={<AverageUseCallbackTest />} />
-        <Route path="UseRefTest" element={<AverageUseRefTest />} />
-        <Route path="useParamsTest/:id" element={<AverageUseParamsTest8 />} />
-        <Route path="customHooksTest" element={<InfoTestCustomHooks9 />} />
       </Routes>
+      LifeCycleTest
     </BrowserRouter>
   );
 }

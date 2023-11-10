@@ -193,6 +193,16 @@ const Main = () => {
           >
             useRefTest 테스트
           </Button>
+          <br />
+          <Button
+            title="useParamsTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useParamsTest");
+            }}
+          >
+            useParamsTest 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

@@ -8,6 +8,12 @@
   font-size: 2rem;
 }
 
+.wrapper2 {
+  background: yellow;
+  color: black;
+  border: 1px solid blue;
+}
+
 /* 전역으로 만들어서 사용하고 싶을 경우 */
 :global .testGlobal {
   font-weight: 800;

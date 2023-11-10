@@ -7,6 +7,8 @@ const TestSass = () => {
   return (
     <div className="SassTest">
       <div className="box red"></div>
+      <div className="box blue"></div>
+      <div className="box green"></div>
     </div>
   );
 };

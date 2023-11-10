@@ -203,6 +203,16 @@ const Main = () => {
           >
             useParamsTest 테스트 주소에 /숫자 붙이기 ex) /10
           </Button>
+          <br />
+          <Button
+            title="customHooksTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/customHooksTest");
+            }}
+          >
+            customHooksTest 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

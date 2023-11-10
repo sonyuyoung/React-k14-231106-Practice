@@ -1,14 +1,9 @@
 // useParams 연습 해보기.
 // 설정 1, 설정2, 적용하기
 
-//순서1 , useParams 설정
-import React, {
-  useState,
-  useMemo,
-  useCallback,
-  useRef,
-  useParams,
-} from "react";
+import React, { useState, useMemo, useCallback, useRef } from "react";
+//순서1 , useParams 설정 틀림, 고치기. 수정.
+import { useParams } from "react-router-dom";
 import { Button } from "antd";
 
 //함수1

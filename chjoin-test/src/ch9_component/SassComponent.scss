@@ -1,0 +1,36 @@
+//재사용할 변수 색깔 선언
+$red: #fa5252;
+$blue: #5255fa;
+$green: #52faac;
+$orange: rgb(250, 163, 82);
+$violet: rgb(172, 82, 250);
+$yellow: rgb(244, 250, 82);
+$navy: rgb(82, 132, 250);
+
+//재사용할 함수 만들기
+@mixin square($size) {
+  $caculated: 32px * $size;
+  width: $caculated;
+  height: $caculated;
+}
+
+.SassTest {
+  display: flex;
+  .box {
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+    // 현재 요소를 가리키는 & -> box 를 가리킴
+    &.red {
+      background: red;
+      // 위에서 만든 사각형 square 함수 재사용
+      @include square(1);
+    }
+    // 나머지 6가지 색깔 재사용해서, 박스 만들기 할 예정.
+
+    &:hover {
+      background: black;
+    }
+  }
+}

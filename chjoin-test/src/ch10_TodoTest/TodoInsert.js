@@ -30,7 +30,6 @@ const FormButtonCss = styled.button`
   background: none;
   outline: none;
   border: none;
-  background: red;
   padding-left: 1rem;
   padding-right: 1rem;
   font-size: 1.5rem;

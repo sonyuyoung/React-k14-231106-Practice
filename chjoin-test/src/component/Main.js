@@ -183,6 +183,16 @@ const Main = () => {
           >
             useCallbackTest 테스트
           </Button>
+          <br />
+          <Button
+            title="useRefTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/useRefTest");
+            }}
+          >
+            useRefTest 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

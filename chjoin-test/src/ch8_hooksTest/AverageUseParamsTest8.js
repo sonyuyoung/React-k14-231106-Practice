@@ -14,7 +14,7 @@ const doAverage = (numbers) => {
   return sum / numbers.length;
 };
 
-const AverageUseParamsTest6 = () => {
+const AverageUseParamsTest8 = () => {
   // 숫자들을 담을 임시배열
   const [list, setList] = useState([]);
   // 숫자 타입 문자열, 연산시 정수로 변환 필요.
@@ -103,4 +103,4 @@ const AverageUseParamsTest6 = () => {
   );
 };
 
-export default AverageUseParamsTest6;
+export default AverageUseParamsTest8;

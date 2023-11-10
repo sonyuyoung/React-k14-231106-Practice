@@ -20,7 +20,7 @@ import InfoTestUseReducer from "./ch8_hooksTest/InfoTestUseReducer";
 import AverageUseMemoTest from "./ch8_hooksTest/AverageUseMemoTest";
 import AverageUseCallbackTest from "./ch8_hooksTest/AverageUseCallbackTest";
 import AverageUseRefTest from "./ch8_hooksTest/AverageUseRefTest";
-import AverageUseParamsTest6 from "./ch8_hooksTest/AverageUseParamsTest6";
+import AverageUseParamsTest8 from "./ch8_hooksTest/AverageUseParamsTest8";
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
         <Route path="useCallbackTest" element={<AverageUseCallbackTest />} />
         <Route path="useRefTest" element={<AverageUseRefTest />} />
         {/* useParams test 설정2 : path="useParamsTest/:id" */}
-        <Route path="useParamsTest/:id" element={<AverageUseParamsTest6 />} />
+        <Route path="useParamsTest/:id" element={<AverageUseParamsTest8 />} />
       </Routes>
     </BrowserRouter>
   );

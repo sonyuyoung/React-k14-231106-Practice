@@ -201,7 +201,7 @@ const Main = () => {
               navigate("/useParamsTest");
             }}
           >
-            useParamsTest 테스트
+            useParamsTest 테스트 주소에 /숫자 붙이기 ex) /10
           </Button>
         </Container>
       </div>

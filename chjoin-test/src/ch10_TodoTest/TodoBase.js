@@ -23,7 +23,7 @@ const AppTitle = styled.div`
   justify-content: center;
 `;
 const Content = styled.div`
-  background: white;
+  background: orange;
 `;
 
 const TodoBase = ({ children }) => {

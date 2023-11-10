@@ -11,7 +11,7 @@ import styled from "styled-components";
 // 3. FormButtonCss
 const FormCss = styled.form`
   display: flex;
-  background: yellow;
+  background: white;
 `;
 const FormInputCss = styled.input`
   background: none;
@@ -20,9 +20,9 @@ const FormInputCss = styled.input`
   padding: 0.5rem;
   font-size: 1.125rem;
   line-height: 1.5;
-  color: white;
+  color: navy;
   &::placeholder {
-    color: antiquewhite;
+    color: black;
   }
   flex: 1;
 `;

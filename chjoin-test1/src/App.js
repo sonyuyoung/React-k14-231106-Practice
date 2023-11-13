@@ -19,6 +19,9 @@ import AverageUseCallbackTest from "./ch8_hooksTest/AverageUseCallbackTest";
 import AverageUseRefTest from "./ch8_hooksTest/AverageUseRefTest";
 import AverageUseParamsTest8 from "./ch8_hooksTest/AverageUseParamsTest8";
 import InfoTestCustomHooks9 from "./ch8_hooksTest/InfoTestCustomHooks9";
+import TestSass from "./ch9_component/TestSass";
+import StyledComponentsTest from "./ch9_component/StyledComponentsTest";
+import TodoMain from "./ch10_toDoTest/TodoMain";
 
 function App() {
   return (
@@ -44,6 +47,9 @@ function App() {
         <Route path="UseRefTest" element={<AverageUseRefTest />} />
         <Route path="useParamsTest/:id" element={<AverageUseParamsTest8 />} />
         <Route path="customHooksTest" element={<InfoTestCustomHooks9 />} />
+        <Route path="sassTest" element={<TestSass />} />
+        <Route path="styledComponentsTest" element={<StyledComponentsTest />} />
+        <Route path="todolistComponentTest" element={<TodoMain />} />
       </Routes>
     </BrowserRouter>
   );

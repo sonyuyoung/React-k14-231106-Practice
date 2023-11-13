@@ -209,6 +209,34 @@ const Main = () => {
           >
             customHooksTest 테스트
           </Button>
+          <Button
+            title="sassTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/sassTest");
+            }}
+          >
+            sassTest 테스트
+          </Button>
+          <Button
+            title="styledComponentsTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/styledComponentsTest");
+            }}
+          >
+            styledComponentsTest 테스트
+          </Button>
+          <br></br>
+          <Button
+            title="todolistComponentTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/todolistComponentTest");
+            }}
+          >
+            todolistComponentTest 테스트
+          </Button>
         </Container>
       </div>
     </Wrapper>

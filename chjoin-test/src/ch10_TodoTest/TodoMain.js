@@ -30,7 +30,7 @@ const TodoMain = () => {
     {
       id: 2,
       text: "더미 데이터 요소 2번입니다.",
-      checked: true,
+      checked: false,
     },
     {
       id: 3,

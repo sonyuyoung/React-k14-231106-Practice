@@ -30,6 +30,27 @@ const TodoListItemCss = styled.div`
   &:nth-child(even) {
     background: #f8f9fa;
   }
+
+  //checkbox 클래스 속성이 빠짐 , 추가하기.
+  // 따로 분리 작업했고,
+`;
+
+const CheckboxCss = styled.div`
+  cursor: pointer;
+  /* 차지 할수 있는 영역 모두 차지 ,  */
+  flex: 1;
+  display: flex;
+  align-items: center;
+
+  svg {
+    font-size: 1.5rem;
+  }
+
+  .text {
+    margin-left: 0.5rem;
+    flex: 1;
+  }
+
   &.checked {
     svg {
       color: #22b8cf;
@@ -38,16 +59,6 @@ const TodoListItemCss = styled.div`
       color: #adb5bd;
       text-decoration: line-through;
     }
-  }
-`;
-const CheckboxCss = styled.div`
-  cursor: pointer;
-  /* 차지 할수 있는 영역 모두 차지 ,  */
-  flex: 1;
-  display: flex;
-  align-items: center;
-  svg {
-    font-size: 1.5rem;
   }
 `;
 const TextCss = styled.div`
@@ -95,7 +106,7 @@ const TodoListItem = ({ todo }) => {
         {/* 조건이 true : MdCheckBox 를 사용하고  */}
         {/* 더미데이터 내용중 text 가져오기 */}
         {/* <TextCss>샘플 할일</TextCss> */}
-        <TextCss>{text}</TextCss>
+        <TextCss className="text">{text}</TextCss>
       </CheckboxCss>
       <RemoveCss>
         <MdRemoveCircleOutline />

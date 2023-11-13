@@ -3,7 +3,7 @@
 // 전체 가운데 요소로 정렬 시켜주는 템플릿 :TodoBase
 // 1)제목 2) 입력란:TodoInsert 3) 리스트 4) 리스트의 아이템 등.
 
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useReducer } from "react";
 import styled from "styled-components";
 // import { AiFillApple } from "react-icons/ai";
 import TodoBase from "./TodoBase";
@@ -35,7 +35,10 @@ const TodoMain = () => {
     return array;
   };
   // createBulkTodos() 의 결과 배열 -> todos 의 초깃값으로 설정.
-  const [todos, setTodos] = useState(createBulkTodos());
+  // createBulkTodos() 사용시 : 1회만 호출
+  // , createBulkTodos 매번 새롭게 만듦. , 차이점
+
+  // const [todos, setTodos] = useState(createBulkTodos());
 
   //샘플 더미 데이터를 임시 배열에 만들어서, 전달. props 테스트
   // const [todos, setTodos] = useState([
@@ -66,6 +69,36 @@ const TodoMain = () => {
   // onInsert 라는 함수는, onChange 함수와는 다르게,
   // 매번 새로운 함수를 생성함. 이유는 함수 안에 배열이 변경이 되어서,
   // todos 배열의 변경에 따라서 , 동작하게 만들기.
+
+  // 방법1) useCallback에서 , 세터 함수 (값 형태x => 함수형태)
+  //    추가로, 의존성 배열 모양을 빈배열 [] , 함수 생성을 1회만 했다는점.
+
+  // 방법2) 성능상 큰 차이 없고, 규모가 커지고, 상태를 관리해주는 라이브러리 Redux 사용하게되면
+  // useReducer를 이용하게 됩니다.
+
+  // 순서1) useReducer 를 임포트
+  // import { useReducer } from "react";
+  // 준비물 , 1) 리듀서 함수, 2) useReducer 생성 3) dispatch 함수를 호출.
+
+  //1) 리듀서 함수
+  const todoReducer = (todos, action) => {
+    switch (action.type) {
+      case "INSERT":
+        return todos.concat(action.todo);
+      case "REMOVE":
+        return todos.filter((todo) => todo.id !== action.id);
+      case "TOGGLE":
+        return todos.map((todo) =>
+          todo.id === action.id ? { ...todo, checked: !todo.checked } : todo
+        );
+      default:
+        return todos;
+    }
+  };
+
+  // 2) useReducer 생성 -> 기존에 더미 데이터를 만드는 부분이 있어서, 위에 부분 주석하기.
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
+
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -79,7 +112,11 @@ const TodoMain = () => {
       // 기존과의 차이점이, useCallback, 의존성 배열이 값이 변경시 마다, 새로 함수를 생성하는 부분을
       // 방법1), 기존에 값으로 변경하는 것 -> 함수 형태로 변경.
       // 매번 새롭게 함수를 생성할 필요가 없음.
-      setTodos((todos) => todos.concat(todo));
+      // setTodos((todos) => todos.concat(todo));
+
+      // 3) dispatch 함수를 호출.
+      dispatch({ type: "INSERT", todo });
+
       nextId.current += 1;
     },
     // [todos]
@@ -99,7 +136,10 @@ const TodoMain = () => {
       // setTodos(todos.filter((todo) => todo.id !== id));
       // 성능개선 2번째, 함수 형태로 변경하고, 의존성 배열에서, todos 참조안하기.
       // 결론, 새롭게 매번 함수 생성을 안함.
-      setTodos((todos) => todos.filter((todo) => todo.id !== id));
+      // setTodos((todos) => todos.filter((todo) => todo.id !== id));
+
+      // 3) dispatch 함수를 호출.
+      dispatch({ type: "REMOVE", id });
     },
     // [todos]
     // 의존성 배열 없이 동작.
@@ -111,16 +151,19 @@ const TodoMain = () => {
   // 설정, 순서1
   const onToggle = useCallback(
     (id) => {
-      setTodos(
-        //선택된 todo의 id가 일치하면, 기존 배열을 복사해서, 선택된 id의 속성 checked 부분 변경시키기
-        // todos.map((todo) =>
-        //   todo.id === id ? { ...todo, checked: !todo.checked } : todo
-        // 성능 개선 2번째, 값이 아니라, 함수형태로 변경.
-        (todos) =>
-          todos.map((todo) =>
-            todo.id === id ? { ...todo, checked: !todo.checked } : todo
-          )
-      );
+      // setTodos(
+      //   //선택된 todo의 id가 일치하면, 기존 배열을 복사해서, 선택된 id의 속성 checked 부분 변경시키기
+      //   // todos.map((todo) =>
+      //   //   todo.id === id ? { ...todo, checked: !todo.checked } : todo
+      //   // 성능 개선 2번째, 값이 아니라, 함수형태로 변경.
+      //   (todos) =>
+      //     todos.map((todo) =>
+      //       todo.id === id ? { ...todo, checked: !todo.checked } : todo
+      //     )
+      // );
+
+      // 3) dispatch 함수를 호출.
+      dispatch({ type: "TOGGLE", id });
     },
     // [todos]
     // 성능개선 2번째, 의존성 배열 없애기.

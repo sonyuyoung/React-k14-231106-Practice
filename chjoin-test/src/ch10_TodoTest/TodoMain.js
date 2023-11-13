@@ -10,7 +10,6 @@ import TodoBase from "./TodoBase";
 import TodoInsert from "./TodoInsert";
 
 import TodoList from "./TodoList";
-import { useCallback } from "react";
 
 const Main_css = styled.div`
   margin: 0;

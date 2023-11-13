@@ -49,5 +49,5 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
     </TodoListCss>
   );
 };
-
-export default TodoList;
+// 추가하기.
+export default React.memo(TodoList);

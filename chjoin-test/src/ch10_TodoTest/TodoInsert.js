@@ -36,7 +36,7 @@ const FormButtonCss = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  transition: 0.1s background ease-in;
+  transition: 1s background ease-in;
   &:hover {
     background: blue;
   }
@@ -46,7 +46,7 @@ const TodoInsert = () => {
   return (
     <FormCss>
       <FormInputCss placeholder="Todo 입력해주세요" />
-      <FormButtonCss type="primary">
+      <FormButtonCss>
         <IoMdAddCircleOutline />
       </FormButtonCss>
     </FormCss>

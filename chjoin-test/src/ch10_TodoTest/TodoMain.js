@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { AiFillApple } from "react-icons/ai";
 import TodoBase from "./TodoBase";
 import TodoInsert from "./TodoInsert";
+import TodoListItem from "./TodoListItem";
 
 const Main_css = styled.div`
   margin: 0;
@@ -16,12 +17,13 @@ const Main_css = styled.div`
   background: #e9ecef;
 `;
 
+// Todo 만들기 준비 메인 <AiFillApple />
 const TodoMain = () => {
   return (
     <Main_css>
-      Todo 만들기 준비 메인 <AiFillApple />
       <TodoBase>
         <TodoInsert />
+        <TodoListItem />
       </TodoBase>
     </Main_css>
   );

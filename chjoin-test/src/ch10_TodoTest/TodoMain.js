@@ -74,6 +74,21 @@ const TodoMain = () => {
     [todos]
   );
 
+  //토글(스위치, on/off), checkbox 부분에 , 이벤트 핸들러 추가하기.
+  // onToggle 이라는 이름. 함수를 자식 컴포넌트에게 전달하기.
+  // 설정, 순서1
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        //선택된 todo의 id가 일치하면, 기존 배열을 복사해서, 선택된 id의 속성 checked 부분 변경시키기
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        )
+      );
+    },
+    [todos]
+  );
+
   return (
     <Main_css>
       <TodoBase>
@@ -81,7 +96,8 @@ const TodoMain = () => {
         <TodoInsert onInsert={onInsert} />
         {/* 위에서 만든 임시 데이터 배열를 전달 : props 속성으로 전달 */}
         {/* 제거하는 함수를 props를 이용해서, 전달 */}
-        <TodoList todos={todos} onRemove={onRemove} />
+        {/* 순서2, 적용하기. 체크하는 함수를 props를 이용해서, 전달 */}
+        <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
       </TodoBase>
     </Main_css>
   );

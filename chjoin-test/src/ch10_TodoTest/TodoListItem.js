@@ -82,7 +82,11 @@ const RemoveCss = styled.div`
 
 // 지우는 기능을 함수를 전달 받아서, 사용하기.
 // <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} />
-const TodoListItem = ({ todo, onRemove }) => {
+
+// 체크하는 기능을 함수를 전달 받아서, 사용하기.
+// <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle} />
+
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
   // const text = todo.text
   // const checked = todo.checked
   // const id = todo.id
@@ -103,7 +107,13 @@ const TodoListItem = ({ todo, onRemove }) => {
       {/* cn 이용하면, checkbox라는 속성이  checked 의 속성에 의해서 
       true 이면 , className에 등록이 되고, 
       false 이면 , className에 등록이 안됨,  */}
-      <CheckboxCss className={cn("checkbox", { checked })}>
+
+      {/* 체크하는 함수 적용하기 onClick={() => onToggle(id) */}
+
+      <CheckboxCss
+        className={cn("checkbox", { checked })}
+        onClick={() => onToggle(id)}
+      >
         {/* 체크박스의 상태를 표시하는 checked 변수를 기준으로, 
         조건이 true : MdCheckBox 를 사용하고 
         조건이 false : MdCheckBoxOutlineBlank 를 사용하기 */}

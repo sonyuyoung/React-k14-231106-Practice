@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import styled from "styled-components";
 
@@ -42,11 +42,41 @@ const FormButtonCss = styled.button`
   }
 `;
 
-const TodoInsert = () => {
+// 부모에서 <TodoInsert onInsert={onInsert} />
+
+const TodoInsert = ({ onInsert }) => {
+  // 추가 기능 넣기,
+  // 기본 state 이용해서 작업 하기.
+  const [value, setValue] = useState("");
+
+  //이벤트 핸들러 추가
+  // useCallback(콜백함수, 의존성 배열)
+  // 의존성 배열 모양 , 빈 배열이라서, 최초 1회만 해당 함수를 만들겠다.
+  // onChange 라는 함수를 계속 새로 만들지 말자.
+  const onChange = useCallback((e) => {
+    setValue(e.target.value);
+  }, []);
+
+  // onSubmit 라는 함수를 임의로 만들어서, 넘어온 함수를 사용하기.
+  const onSubmit = useCallback(
+    (e) => {
+      onInsert(value);
+      setValue("");
+      e.preventDefault();
+    },
+    [onInsert, value]
+  );
+
   return (
-    <FormCss>
-      <FormInputCss placeholder="Todo 입력해주세요" />
-      <FormButtonCss>
+    // 적용하기. 넘어온 함수 이벤트 부분 적용하기
+    <FormCss onSubmit={onSubmit}>
+      <FormInputCss
+        // 추가하기, state 를 이용해서, value , onChage 속성 사용하기.
+        value={value}
+        onChange={onChange}
+        placeholder="Todo 입력해주세요"
+      />
+      <FormButtonCss type="submit">
         <IoMdAddCircleOutline />
       </FormButtonCss>
     </FormCss>

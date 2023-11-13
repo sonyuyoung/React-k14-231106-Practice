@@ -33,7 +33,7 @@ const TodoMain = () => {
       checked: true,
     },
     {
-      id: 1,
+      id: 3,
       text: "더미 데이터 요소 3번입니다.",
       checked: true,
     },

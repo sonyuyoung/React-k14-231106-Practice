@@ -60,12 +60,23 @@ const RemoveCss = styled.div`
   }
 `;
 
-const TodoListItem = () => {
+// 부모 컴포넌트 TodoList 로 부터 전달 받은 속성
+// <TodoListItem todo={todo} key={todo.id} />
+// todo = {id:1, text="내용", checked : true}
+const TodoListItem = ({ todo }) => {
+  // const text = todo.text
+  // const checked = todo.checked
+  const { text, checked } = todo;
   return (
+    // 부모로 부터 받은 더미 데이터를 사용하면 됨.
+    // 전달.
+    // 1) TodoMain -> TodoList -> TodoListItem : 더미데이터가 전달중, props로
     <TodoListItemCss>
       <CheckboxCss>
         <MdCheckBoxOutlineBlank />
-        <TextCss>샘플 할일</TextCss>
+        {/* 더미데이터 내용중 text 가져오기 */}
+        {/* <TextCss>샘플 할일</TextCss> */}
+        <TextCss>{text}</TextCss>
       </CheckboxCss>
       <RemoveCss>
         <MdRemoveCircleOutline />

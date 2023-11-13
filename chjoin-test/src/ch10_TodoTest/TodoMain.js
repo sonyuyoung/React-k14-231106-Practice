@@ -60,13 +60,28 @@ const TodoMain = () => {
     [todos]
   );
 
+  // 지우기 기능 함수 추가하기.
+  // 데이터 추가시 : 내장 함수 , concat 이용해서, 새로운 배열생성.
+  // 데이터 삭제시 : 내장 함수, filter 이용해서,  새로운 배열생성.
+  // 콜백함수 , 조건 일치하는 요소만 뽑아서, 새로 생성함.
+  const onRemove = useCallback(
+    (id) => {
+      // 만약, id가 2를 선택했다면, todo.id !== id,
+      // 선택된 id 2를 제외한 나머지 요소를 뽑아서(필터해서) 새로운 배열 생성
+      // 결론, 선택된 id 2를 제거하는 효과와 같다.
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
   return (
     <Main_css>
       <TodoBase>
         {/* 위에서 만든 useCallback 함수를 자식 컴포넌트에게 전달하기. */}
         <TodoInsert onInsert={onInsert} />
         {/* 위에서 만든 임시 데이터 배열를 전달 : props 속성으로 전달 */}
-        <TodoList todos={todos} />
+        {/* 제거하는 함수를 props를 이용해서, 전달 */}
+        <TodoList todos={todos} onRemove={onRemove} />
       </TodoBase>
     </Main_css>
   );

@@ -13,7 +13,11 @@ const TodoListCss = styled.div`
 {
   /* <TodoList todos={todos} /> */
 }
-const TodoList = ({ todos }) => {
+// 제거하는 함수를 전달 받아서, 사용하기.
+{
+  /* <TodoList todos={todos} onRemove={onRemove} /> */
+}
+const TodoList = ({ todos, onRemove }) => {
   return (
     <TodoListCss>
       {/* 부모에서 전달받은 데이터를 사용해보기 */}
@@ -21,7 +25,9 @@ const TodoList = ({ todos }) => {
         // TodoList 부모 컴포넌트에, 다시, 자식 컴포넌트인 TodoListItem에게 props 로 전달 중.
         // todo 속성과, key 속성 전달함
         // 목록요소가 출력시 반드시, key 명시해야함, 그래야  오류가 없고, 속도 빠름.
-        <TodoListItem todo={todo} key={todo.id} />
+
+        // TodoMain -> TodoList -> TodoListItem 에게, 지우는 기능의 함수를 전달. onRemove={onRemove}
+        <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} />
       ))}
       {/* <TodoListItem />
       <TodoListItem />

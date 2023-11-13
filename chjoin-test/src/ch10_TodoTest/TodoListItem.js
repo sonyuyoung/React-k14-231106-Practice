@@ -79,10 +79,18 @@ const RemoveCss = styled.div`
 // 부모 컴포넌트 TodoList 로 부터 전달 받은 속성
 // <TodoListItem todo={todo} key={todo.id} />
 // todo = {id:1, text="내용", checked : true}
-const TodoListItem = ({ todo }) => {
+
+// 지우는 기능을 함수를 전달 받아서, 사용하기.
+// <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} />
+const TodoListItem = ({ todo, onRemove }) => {
   // const text = todo.text
   // const checked = todo.checked
-  const { text, checked } = todo;
+  // const id = todo.id
+
+  // 삭제를 할려면, 그 요소를 선택하기.
+  // 어느 요소를 삭제할지를 시스템에 알려줘야 함.
+  // 예) todo id = 1, id = 2
+  const { id, text, checked } = todo;
   return (
     // 부모로 부터 받은 더미 데이터를 사용하면 됨.
     // 전달.
@@ -108,7 +116,7 @@ const TodoListItem = ({ todo }) => {
         {/* <TextCss>샘플 할일</TextCss> */}
         <TextCss className="text">{text}</TextCss>
       </CheckboxCss>
-      <RemoveCss>
+      <RemoveCss onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </RemoveCss>
     </TodoListItemCss>

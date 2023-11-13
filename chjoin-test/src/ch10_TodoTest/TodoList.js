@@ -3,7 +3,8 @@ import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 
 // 페이징 처리 해주는 가상의 리스트 불러오기
-import List from "react-virtualized";
+// import { List } from "react-virtualized";
+import { List } from "react-virtualized";
 
 // 전체 리스트 부분만 css 작업. TodoListCss
 const TodoListCss = styled.div`
@@ -55,32 +56,32 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
       height={513}
       rowCount={todos.length}
       rowHeight={57}
-      rowRender={rowRender}
+      //오타 수정. rowRender -> rowRenderer
+      rowRenderer={rowRender}
       list={todos}
       style={{ outline: "none" }}
-    >
-      {/* 부모에서 전달받은 데이터를 사용해보기 */}
-      {todos.map((todo) => (
-        // TodoList 부모 컴포넌트에, 다시, 자식 컴포넌트인 TodoListItem에게 props 로 전달 중.
-        // todo 속성과, key 속성 전달함
-        // 목록요소가 출력시 반드시, key 명시해야함, 그래야  오류가 없고, 속도 빠름.
+    />
+    /* 부모에서 전달받은 데이터를 사용해보기 */
+    // {todos.map((todo) => (
+    // TodoList 부모 컴포넌트에, 다시, 자식 컴포넌트인 TodoListItem에게 props 로 전달 중.
+    // todo 속성과, key 속성 전달함
+    // 목록요소가 출력시 반드시, key 명시해야함, 그래야  오류가 없고, 속도 빠름.
 
-        // TodoMain -> TodoList -> TodoListItem 에게, 지우는 기능의 함수를 전달. onRemove={onRemove}
-        // TodoMain -> TodoList -> TodoListItem 에게, 체크한는 기능의 함수를 전달. onToggle={onToggle}
-        <TodoListItem
-          todo={todo}
-          key={todo.id}
-          onRemove={onRemove}
-          onToggle={onToggle}
-        />
-      ))}
-      {/* <TodoListItem />
+    // TodoMain -> TodoList -> TodoListItem 에게, 지우는 기능의 함수를 전달. onRemove={onRemove}
+    // TodoMain -> TodoList -> TodoListItem 에게, 체크한는 기능의 함수를 전달. onToggle={onToggle}
+    //   <TodoListItem
+    //     todo={todo}
+    //     key={todo.id}
+    //     onRemove={onRemove}
+    //     onToggle={onToggle}
+    //   />
+    // ))}
+    /* <TodoListItem />
       <TodoListItem />
       <TodoListItem />
       <TodoListItem /> 
       자식에서, 더미 데이터 직접 만들어서 사용했다면
-      */}
-    </List>
+      */
   );
 };
 // 추가하기.

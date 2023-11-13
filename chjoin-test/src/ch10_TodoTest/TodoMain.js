@@ -91,8 +91,8 @@ const TodoMain = () => {
   // npm install react-virtualized 설치
   // 2) 각 아이템 요소의 높이를 구해야함. 첫번째 요소가 말고, 두번째 요소부터의 높이를 구하기.
   // 왜냐하면? 첫번째 항목은 테두리가 없어서,
-  // 첫번째 높이 56px,  두번째 부터 : 57px , 512x513(57*9 = 513)
-  // 3)
+  // 첫번째 높이 56px,  두번째 부터 : 57px , TodoList 사이즈 : 512x513(57*9 = 513)
+  // 3) TodoList 이동하기.
 
   //1) 리듀서 함수
   const todoReducer = (todos, action) => {

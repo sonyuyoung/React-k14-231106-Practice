@@ -20,27 +20,47 @@ const Main_css = styled.div`
 
 // Todo 만들기 준비 메인 <AiFillApple />
 const TodoMain = () => {
+  //문제점 제시, 더미 데이터 약 3000개로 추가하고,
+  //느려지는 부분 만든 후, 확인, 적용해보기.
+
+  const createBulkTodos = () => {
+    const array = [];
+    for (let i = 1; i <= 3000; i++) {
+      array.push({
+        id: i,
+        text: `더미 데이터 : ${i}`,
+        checked: false,
+      });
+    }
+    return array;
+  };
+  // createBulkTodos() 의 결과 배열 -> todos 의 초깃값으로 설정.
+  const [todos, setTodos] = useState(createBulkTodos());
+
   //샘플 더미 데이터를 임시 배열에 만들어서, 전달. props 테스트
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "더미 데이터 요소 1번입니다.",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "더미 데이터 요소 2번입니다.",
-      checked: false,
-    },
-    {
-      id: 3,
-      text: "더미 데이터 요소 3번입니다.",
-      checked: true,
-    },
-  ]);
+  // const [todos, setTodos] = useState([
+  //   {
+  //     id: 1,
+  //     text: "더미 데이터 요소 1번입니다.",
+  //     checked: true,
+  //   },
+  //   {
+  //     id: 2,
+  //     text: "더미 데이터 요소 2번입니다.",
+  //     checked: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     text: "더미 데이터 요소 3번입니다.",
+  //     checked: true,
+  //   },
+  // ]);
 
   //추가로 입력이 되는 todo 부분의 아이디를 id : 4부터 할당 할 예정.
-  const nextId = useRef(4);
+  // const nextId = useRef(4);
+
+  // 3000개 더미 데이터라서, 다음 번호
+  const nextId = useRef(3001);
 
   // TodoMain -> TodoInsert 자식 컴포넌트에게, props로 함수를 전달하기.
   // onInsert 라는 함수는, onChange 함수와는 다르게,

@@ -35,9 +35,30 @@ const TodoListItemCss = styled.div`
     }
   }
 `;
-const CheckboxCss = styled.div``;
-const TextCss = styled.div``;
-const RemoveCss = styled.div``;
+const CheckboxCss = styled.div`
+  cursor: pointer;
+  /* 차지 할수 있는 영역 모두 차지 ,  */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  svg {
+    font-size: 1.5rem;
+  }
+`;
+const TextCss = styled.div`
+  margin-left: 1.5rem;
+  flex: 1;
+`;
+const RemoveCss = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ff6b6b;
+  cursor: pointer;
+  &:hover {
+    color: #ff8787;
+  }
+`;
 
 const TodoListItem = () => {
   return (

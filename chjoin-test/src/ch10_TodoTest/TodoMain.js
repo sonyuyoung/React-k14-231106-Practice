@@ -74,10 +74,17 @@ const TodoMain = () => {
         text,
         checked: false,
       };
-      setTodos(todos.concat(todo));
+      // setTodos(todos.concat(todo));
+      // 성능 개선 2번째,
+      // 기존과의 차이점이, useCallback, 의존성 배열이 값이 변경시 마다, 새로 함수를 생성하는 부분을
+      // 방법1), 기존에 값으로 변경하는 것 -> 함수 형태로 변경.
+      // 매번 새롭게 함수를 생성할 필요가 없음.
+      setTodos((todos) => todos.concat(todo));
       nextId.current += 1;
     },
-    [todos]
+    // [todos]
+    // 성능 개선 2번째,  의존성 배열 부분 비우기.
+    []
   );
 
   // 지우기 기능 함수 추가하기.
@@ -89,9 +96,14 @@ const TodoMain = () => {
       // 만약, id가 2를 선택했다면, todo.id !== id,
       // 선택된 id 2를 제외한 나머지 요소를 뽑아서(필터해서) 새로운 배열 생성
       // 결론, 선택된 id 2를 제거하는 효과와 같다.
-      setTodos(todos.filter((todo) => todo.id !== id));
+      // setTodos(todos.filter((todo) => todo.id !== id));
+      // 성능개선 2번째, 함수 형태로 변경하고, 의존성 배열에서, todos 참조안하기.
+      // 결론, 새롭게 매번 함수 생성을 안함.
+      setTodos((todos) => todos.filter((todo) => todo.id !== id));
     },
-    [todos]
+    // [todos]
+    // 의존성 배열 없이 동작.
+    []
   );
 
   //토글(스위치, on/off), checkbox 부분에 , 이벤트 핸들러 추가하기.
@@ -101,12 +113,18 @@ const TodoMain = () => {
     (id) => {
       setTodos(
         //선택된 todo의 id가 일치하면, 기존 배열을 복사해서, 선택된 id의 속성 checked 부분 변경시키기
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo
-        )
+        // todos.map((todo) =>
+        //   todo.id === id ? { ...todo, checked: !todo.checked } : todo
+        // 성능 개선 2번째, 값이 아니라, 함수형태로 변경.
+        (todos) =>
+          todos.map((todo) =>
+            todo.id === id ? { ...todo, checked: !todo.checked } : todo
+          )
       );
     },
-    [todos]
+    // [todos]
+    // 성능개선 2번째, 의존성 배열 없애기.
+    []
   );
 
   return (

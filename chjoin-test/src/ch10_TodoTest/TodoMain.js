@@ -25,7 +25,7 @@ const TodoMain = () => {
 
   const createBulkTodos = () => {
     const array = [];
-    for (let i = 1; i <= 3000; i++) {
+    for (let i = 1; i <= 20000; i++) {
       array.push({
         id: i,
         text: `더미 데이터 : ${i}`,
@@ -60,7 +60,7 @@ const TodoMain = () => {
   // const nextId = useRef(4);
 
   // 3000개 더미 데이터라서, 다음 번호
-  const nextId = useRef(3001);
+  const nextId = useRef(20001);
 
   // TodoMain -> TodoInsert 자식 컴포넌트에게, props로 함수를 전달하기.
   // onInsert 라는 함수는, onChange 함수와는 다르게,

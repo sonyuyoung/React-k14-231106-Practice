@@ -133,4 +133,5 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoListItem;
+// 맨 마지막에서, 디폴트 부분 React.memo 적용해서, 1차 성능 개선확인.
+export default React.memo(TodoListItem);

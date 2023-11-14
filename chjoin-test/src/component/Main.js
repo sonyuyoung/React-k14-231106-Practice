@@ -263,6 +263,16 @@ const Main = () => {
           >
             immerTestZone, 불변성 쉽게 유지
           </Button>
+          <br />
+          <Button
+            title="ApiTest"
+            type="primary"
+            onClick={() => {
+              navigate("/ApiTest");
+            }}
+          >
+            ApiTest 확인
+          </Button>
         </Container>
       </div>
     </Wrapper>

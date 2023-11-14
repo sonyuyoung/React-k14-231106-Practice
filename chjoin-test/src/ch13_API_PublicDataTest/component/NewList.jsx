@@ -42,7 +42,7 @@ const NewList = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=87af28a1123a4fcc9c869c0b81bd243c"
+          "https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=b7adb4f936494b3bac62f446ab7686cb"
         );
         //console.log(response.data)
         // 해당 주소를 입력해서, 모델링 조사할 때, 이미 구조를 다 봤음.

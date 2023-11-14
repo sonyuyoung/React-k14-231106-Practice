@@ -117,7 +117,10 @@ const ImmerTest = () => {
         <ul>
           {data.array.map((info) => (
             <li key={info.id} onClick={() => onRemove(info.id)}>
-              이름 : {info.name} , 나이 : {info.age}
+              <h1>
+                {" "}
+                이름 : {info.name} , 나이 : {info.age}
+              </h1>
             </li>
           ))}
         </ul>

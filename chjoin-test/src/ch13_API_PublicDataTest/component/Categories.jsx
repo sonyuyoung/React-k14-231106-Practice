@@ -18,6 +18,8 @@ const CategoriesBlockCss = styled.div`
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
+  background-image: url("https://cdn.pixabay.com/animation/2022/07/30/22/01/22-01-29-66_512.gif");
+  background-size: 10%;
   @media screen and (max-width: 768px) {
     width: 100%;
     overflow-x: auto;

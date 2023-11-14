@@ -4,6 +4,7 @@ import React, { useCallback, useRef, useState } from "react";
 // yarn add immer
 // npm install immer
 // 간단히, 이름, 나이, 입력란에서, 추가, 삭제(더블클릭이벤트) 예제 이용하기.
+import { produce } from "immer";
 
 const ImmerTest = () => {
   //순서2 , useRef, 설정1
@@ -30,11 +31,21 @@ const ImmerTest = () => {
       // const name = e.target.name
       // const value = e.target.value
       const { name, value } = e.target;
-      setForm({
-        // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
-        ...form,
-        [name]: [value],
-      });
+      // 기존 방법1
+      // setForm({
+      // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
+      // ...form,
+      // [name]: [value],
+      // });
+
+      // 방법2
+      // immer 라이브러리 변경
+      // produce(원본객체, 변경할 업데이트 함수)
+      setForm(
+        produce(form, (draft) => {
+          draft[name] = value;
+        })
+      );
     },
     [form]
   );
@@ -53,11 +64,21 @@ const ImmerTest = () => {
       };
 
       // sample data의 array 에 새항목 추가.
-      setData({
-        // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
-        ...data,
-        array: data.array.concat(info),
-      });
+      // 기존 방법1. spread 연산자 이용.
+      // setData({
+      //   // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
+      //   ...data,
+      //   array: data.array.concat(info),
+      // });
+
+      // 방법2
+      // immer 라이브러리 변경
+      // produce(원본객체, 변경할 업데이트 함수)
+      setData(
+        produce(data, (draft) => {
+          draft.array.push(info);
+        })
+      );
 
       // form data 초기화, 입력란 비우기.
       setForm({
@@ -79,11 +100,27 @@ const ImmerTest = () => {
   const onRemove = useCallback(
     // 1 매개변수 : 콜백함수
     (id) => {
-      setData({
-        // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
-        ...data,
-        array: data.array.filter((info) => info.id !== id),
-      });
+      // 기존 spread 연산자를 이용한 , 불변성 유지 하면서, 업데이트 하기.
+      // 기존 방법1
+      // setData({
+      //   ...data,
+      //   array: data.array.filter((info) => info.id !== id),
+      // });
+
+      // 방법2
+      // immer 라이브러리 변경
+      // produce(원본객체, 변경할 업데이트 함수)
+      // splice(startIndex,deletecount, newItem, newItem,...)
+      // splice(1,1) : 1이라는 인덱스부터, 1개 요소를 삭제를 하는 내장 함수.
+      //데이터 제거 1, 제거한 원소를 가지는 배열을 출력.
+      setData(
+        produce(data, (draft) => {
+          draft.array.splice(
+            draft.array.findIndex((info) => info.id === id),
+            1
+          );
+        })
+      );
     },
     // 2 매개변수
     // 의존성 배열

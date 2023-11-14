@@ -25,6 +25,7 @@ import InfoTestCustomHooks9 from "./ch8_hooksTest/InfoTestCustomHooks9";
 import TestSass from "./ch9_component/TestSass";
 import StyledComponentsTest from "./ch9_component/StyledComponentsTest";
 import TodoMain from "./ch10_TodoTest/TodoMain";
+import ImmerTest from "./ch12_immerTest/ImmerTest";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route path="sassTest" element={<TestSass />} />
         <Route path="styledComponentsTest" element={<StyledComponentsTest />} />
         <Route path="todoMain" element={<TodoMain />} />
+        <Route path="immerTest" element={<ImmerTest />} />
       </Routes>
     </BrowserRouter>
   );

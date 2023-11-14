@@ -65,7 +65,7 @@ function App() {
         <Route path="immerTestZone" element={<TestZone2 />} />
         <Route path="apiTest" element={<ApiTest />} />
         <Route path="apiTest2" element={<ApiTestKoreaNews />} />
-        <Route path="apiTest3" element={<MainNews />} />
+        {/* <Route path="apiTest3" element={<MainNews />} /> */}
         <Route path="newsPageTest/:category" element={<NewsPage />} />
       </Routes>
     </BrowserRouter>

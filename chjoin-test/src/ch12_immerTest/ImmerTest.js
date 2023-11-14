@@ -99,7 +99,10 @@ const ImmerTest = () => {
           value={form.age}
           onChange={onChange}
         />
-        <button type="submit">등록하기</button>
+        {/* <button type="submit">등록하기</button> */}
+        <Button type="primary" htmlType="submit">
+          등록하기
+        </Button>
       </form>
       {/* 리스트 출력하기.  */}
       <div>

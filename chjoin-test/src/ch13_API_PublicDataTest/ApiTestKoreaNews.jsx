@@ -6,6 +6,11 @@ import { Button } from "antd";
 // business ,entertainment, health, science, technology
 // https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=87af28a1123a4fcc9c869c0b81bd243c
 
+// 모델 구조 :
+// 키 : articles  , 값 : [{기사객체},{기사객체},{기사객체},...]
+// 가지고 올 데이터 :
+// 1) title 2) description 3) url 4) urlToImage
+
 const ApiTestKoreaNews = () => {
   // REST API 서버에서, 임시로 받아온 data , state 로 확인하기.
   const [data, setData] = useState(null);

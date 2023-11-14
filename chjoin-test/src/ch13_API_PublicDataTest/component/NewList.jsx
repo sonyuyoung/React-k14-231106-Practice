@@ -46,7 +46,7 @@ const NewList = ({ category }) => {
         // 카테고리별로, url 주소 변경하기.
         const query = category === "all" ? "" : `&category=${category}`;
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=kr&${query}&apiKey=b7adb4f936494b3bac62f446ab7686cb`
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=b7adb4f936494b3bac62f446ab7686cb`
         );
         //console.log(response.data)
         // 해당 주소를 입력해서, 모델링 조사할 때, 이미 구조를 다 봤음.

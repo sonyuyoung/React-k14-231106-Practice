@@ -30,6 +30,7 @@ import TestZone2 from "./ch12_immerTest/TestZone2";
 import ApiTest from "./ch13_API_PublicDataTest/ApiTest";
 import ApiTestKoreaNews from "./ch13_API_PublicDataTest/ApiTestKoreaNews";
 import MainNews from "./ch13_API_PublicDataTest/component/MainNews";
+import NewsPage from "./ch13_API_PublicDataTest/page/NewsPage";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         <Route path="apiTest" element={<ApiTest />} />
         <Route path="apiTest2" element={<ApiTestKoreaNews />} />
         <Route path="apiTest3" element={<MainNews />} />
+        <Route path="newsPageTest/:category" element={<NewsPage />} />
       </Routes>
     </BrowserRouter>
   );

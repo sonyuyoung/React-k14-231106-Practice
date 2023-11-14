@@ -64,14 +64,16 @@ const NewsItem = ({ article }) => {
           {/* 링크 클릭시, target="_blank" : 새창 으로 열기 
           rel="noopener noreferrer" : 새창으로 열었을 때, 
           원본 링크의 참조라든지, 개인 정보 부분을 막아주기. */}
-          <a href={url} target="_blank" rel="noopener noreferrer" />
-          <img src={urlToImage} alt="thumbnail" />
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <img src={urlToImage} alt="thumbnail" />
+          </a>
         </div>
       )}
       <div className="contents">
         <h2>
-          <a href={url} target="_blank" rel="noopener noreferrer" />
-          {title}
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {title}
+          </a>
         </h2>
         <p>{description}</p>
       </div>

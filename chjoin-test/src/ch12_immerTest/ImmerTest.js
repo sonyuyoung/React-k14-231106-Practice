@@ -6,6 +6,9 @@ import React, { useCallback, useRef, useState } from "react";
 // 간단히, 이름, 나이, 입력란에서, 추가, 삭제(더블클릭이벤트) 예제 이용하기.
 
 const ImmerTest = () => {
+  //순서2 , useRef, 설정1
+  const inputElement = useRef(null);
+
   // id , 임의로 useRef로 만들어 사용하기.
   const nextId = useRef(1);
   // form , 객체의 기본값, name : "", age : ""
@@ -63,6 +66,10 @@ const ImmerTest = () => {
       });
       // nextId 값 1 증가 시키기.
       nextId.current += 1;
+
+      //순서3 , useRef, 적용
+      inputElement.current.focus();
+
       // useCallback 의 의존성 배열 , data, form.name, form.age 변경시, 새함수 생성
     },
     [data, form.name, form.age]
@@ -92,6 +99,7 @@ const ImmerTest = () => {
           placeholder="이름 입력해주세요"
           value={form.name}
           onChange={onChange}
+          ref={inputElement}
         />
         <input
           name="age"

@@ -28,6 +28,7 @@ import TodoMain from "./ch10_TodoTest/TodoMain";
 import ImmerTest from "./ch12_immerTest/ImmerTest";
 import TestZone2 from "./ch12_immerTest/TestZone2";
 import ApiTest from "./ch13_API_PublicDataTest/ApiTest";
+import ApiTestKoreaNews from "./ch13_API_PublicDataTest/ApiTestKoreaNews";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
         <Route path="immerTest" element={<ImmerTest />} />
         <Route path="immerTestZone" element={<TestZone2 />} />
         <Route path="apiTest" element={<ApiTest />} />
+        <Route path="apiTest2" element={<ApiTestKoreaNews />} />
       </Routes>
     </BrowserRouter>
   );

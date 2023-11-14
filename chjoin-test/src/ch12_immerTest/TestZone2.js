@@ -15,7 +15,12 @@ const TestZone2 = () => {
     end: 5,
   };
 
-  const sampleData = [{ id: 1, name: "lsy", age: "22" }];
+  const sampleData = [
+    { id: 1, name: "lsy", age: "22" },
+    { id: 2, name: "lsy2", age: "22" },
+    { id: 3, name: "lsy3", age: "33" },
+    { id: 4, name: "lsy4", age: "44" },
+  ];
   // 기본 문법 살펴보기.
   // produce ( 원본 데이터, 변경할 업데이트 함수)
   const nextState = produce(array, (draft) => {
@@ -34,6 +39,7 @@ const TestZone2 = () => {
   });
 
   //데이터 제거 1, 제거한 원소를 가지는 배열을 출력.
+  // filter 이용해서, 제거하는 부분은 다시 정리하기.
   const nextState4 = produce(sampleData, (draft) => {
     draft.filter((item) => item.id !== 1);
   });

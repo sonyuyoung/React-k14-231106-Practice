@@ -265,13 +265,13 @@ const Main = () => {
           </Button>
           <br />
           <Button
-            title="ApiTest"
+            title="apiTest"
             type="primary"
             onClick={() => {
-              navigate("/ApiTest");
+              navigate("/apiTest");
             }}
           >
-            ApiTest 확인
+            apiTest 확인
           </Button>
         </Container>
       </div>

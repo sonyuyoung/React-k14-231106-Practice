@@ -60,6 +60,7 @@ function App() {
         <Route path="todoMain" element={<TodoMain />} />
         <Route path="immerTest" element={<ImmerTest />} />
         <Route path="immerTestZone" element={<TestZone2 />} />
+        <Route path="apiTest" element={<ApiTest />} />
       </Routes>
     </BrowserRouter>
   );

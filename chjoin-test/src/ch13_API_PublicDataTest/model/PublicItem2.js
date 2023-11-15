@@ -1,5 +1,5 @@
 import React from "react";
-//부산 테마 먹거리 요소로 구성.
+//부산 도보 여행 요소로 구성.
 //기존 css 재사용
 // 가지고 올 데이터 부분 변경.
 import styled from "styled-components";
@@ -48,11 +48,11 @@ const NewsItemCss = styled.div`
   }
 `;
 
-const PublicItem = ({ article }) => {
+const PublicItem2 = ({ article }) => {
   // article : 각 기사의 내용을 담은 객체.
   // 비구조화 할당으로 각 각 할당.
-  //선택할 요소: 1)MAIN_TITLE, 2)CNTCT_TEL 3)MAIN_IMG_THUMB 4)ADDR1
-  const { MAIN_TITLE, CNTCT_TEL, MAIN_IMG_THUMB, ADDR1 } = article;
+  // 선택할 요소: 1)MAIN_TITLE 2)MAIN_IMG_THUMB 3)TRFC_INFO 4)ITEMCNTNTS
+  const { MAIN_TITLE, TRFC_INFO, MAIN_IMG_THUMB, ITEMCNTNTS } = article;
   return (
     <NewsItemCss>
       {/* 조건부 렌더링으로 출력하기.  */}
@@ -68,11 +68,10 @@ const PublicItem = ({ article }) => {
       )}
       <div className="contents">
         <h2>{MAIN_TITLE}</h2>
-        <p>주소: {ADDR1}</p>
-        <p>연락처 : {CNTCT_TEL}</p>
+        <p>교통정보: {TRFC_INFO}</p>
+        <p>설명 : {ITEMCNTNTS}</p>
       </div>
     </NewsItemCss>
   );
 };
-
-export default PublicItem;
+export default PublicItem2;

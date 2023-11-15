@@ -3,6 +3,7 @@
 import React from "react";
 import ColorContext, { ColorProvider } from "./testColor";
 import TestColorBox from "./TestColorBox";
+import TestSelectColors from "./TestSelectColors";
 
 const TestColorMain = () => {
   return (
@@ -13,10 +14,12 @@ const TestColorMain = () => {
     //   </ColorContext.Provider>
     // </div>
     //예시2
+    // const ColorProvider = ({ children }) => {
+    // const [color, setColor] = useState("blue");
+    // const [subcolor, setSubcolor] = useState("red");
     <ColorProvider>
-      <div>
-        <TestColorBox />
-      </div>
+      <TestSelectColors />
+      <TestColorBox />
     </ColorProvider>
   );
 };

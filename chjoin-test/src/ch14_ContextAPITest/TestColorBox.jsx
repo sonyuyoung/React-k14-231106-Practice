@@ -1,6 +1,7 @@
 import React from "react";
 // 전역 속성 가져오기
 import ColorContext from "./testColor";
+//예시2
 import { ColorConsumer } from "./testColor";
 
 //전역에서 설정한 속성 가져오기.

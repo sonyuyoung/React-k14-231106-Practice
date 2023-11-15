@@ -1,9 +1,10 @@
 import React from "react";
-const colors = ["red", "orange", "blue", "indigo", "violet", "aqua", "navy"];
+import { ColorConsumer } from "./testColor";
 
 //전역의 설정 값 또는 함수를 사용하기.
 // Consumer = 게터, Provider = 세터  , 비슷한 역할을 한다.
-import { ColorConsumer } from "./testColor";
+
+const colors = ["red", "orange", "blue", "indigo", "violet", "aqua", "navy"];
 
 const TestSelectColors = () => {
   return (

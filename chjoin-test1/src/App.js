@@ -3,6 +3,7 @@ import "./App.css";
 // 자식 컴포넌트 요소
 import Join from "./component/Join";
 import Main from "./component/Main";
+
 import { Button, Space, DatePicker, version } from "antd";
 // 페이지 이동을 위한 설정 1
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -22,7 +23,14 @@ import InfoTestCustomHooks9 from "./ch8_hooksTest/InfoTestCustomHooks9";
 import TestSass from "./ch9_component/TestSass";
 import StyledComponentsTest from "./ch9_component/StyledComponentsTest";
 import TodoMain from "./ch10_toDoTest/TodoMain";
-
+import TestZone from "./ch12_immerTest/TestZone";
+import ImmerTest from "./ch12_immerTest/ImmerTest";
+import ApiTest from "./ch13_API_PublicDataTest/ApiTest";
+import ApiTestKoreaNews from "./ch13_API_PublicDataTest/ApiTestKoreaNews";
+import MainNews from "./ch13_API_PublicDataTest/component/MainNews";
+import Categories from "./ch13_API_PublicDataTest/component/Categories";
+import NewsPage from "./ch13_API_PublicDataTest/page/NewsPage";
+import TestColorBox from "./ch14_ContextAPITest/TestColorBox";
 function App() {
   return (
     // 페이지 이동을 위한 설정 2. 전체 요소를
@@ -50,6 +58,15 @@ function App() {
         <Route path="sassTest" element={<TestSass />} />
         <Route path="styledComponentsTest" element={<StyledComponentsTest />} />
         <Route path="todolistComponentTest" element={<TodoMain />} />
+        <Route path="testZone" element={<TestZone />} />
+        <Route path="immerTest" element={<ImmerTest />} />
+        <Route path="apiTest" element={<ApiTest />} />
+        <Route path="apiTestKoreaNews" element={<ApiTestKoreaNews />} />
+        <Route path="mainNews" element={<MainNews />} />
+        <Route path="categories" element={<Categories />} />
+        {/* <Route path="apiTest3" element={<MainNews />} /> */}
+        <Route path="newsPageTest/:category" element={<NewsPage />} />
+        <Route path="testColorBox" element={<TestColorBox />} />
       </Routes>
     </BrowserRouter>
   );

@@ -237,6 +237,88 @@ const Main = () => {
           >
             todolistComponentTest 테스트
           </Button>
+          <br></br>
+          <Button
+            title="immerTest"
+            type="primary"
+            onClick={() => {
+              navigate("/immerTest");
+            }}
+          >
+            immerTest, 불변성 쉽게 유지
+          </Button>
+
+          <br></br>
+          <Button
+            title="testZone 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/testZone");
+            }}
+          >
+            testZone 테스트
+          </Button>
+          <br></br>
+          <Button
+            title="apiTest 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/apiTest");
+            }}
+          >
+            apiTest 확인
+          </Button>
+          <br></br>
+          <Button
+            title="apiTestKoreaNews 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/apiTestKoreaNews");
+            }}
+          >
+            apiTestKoreaNews 확인
+          </Button>
+          <br></br>
+          <Button
+            title="mainNews 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/mainNews");
+            }}
+          >
+            mainNews 확인
+          </Button>
+          <br></br>
+          <Button
+            title="categories 테스트 "
+            type="primary"
+            onClick={() => {
+              navigate("/categories");
+            }}
+          >
+            categories 확인
+          </Button>
+
+          <br />
+          <Button
+            title="newsPageTest/:category"
+            type="primary"
+            onClick={() => {
+              navigate("/newsPageTest/:category");
+            }}
+          >
+            newsPageTest/:category 확인
+          </Button>
+          <br />
+          <Button
+            title="testColorBox"
+            type="primary"
+            onClick={() => {
+              navigate("/testColorBox");
+            }}
+          >
+            testColorBox 확인
+          </Button>
         </Container>
       </div>
     </Wrapper>

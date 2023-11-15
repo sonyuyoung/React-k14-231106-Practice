@@ -70,6 +70,7 @@ function App() {
         {/* <Route path="apiTest3" element={<MainNews />} /> */}
         <Route path="newsPageTest/:category" element={<NewsPage />} />
         <Route path="contextAPITest" element={<TestColorMain />} />
+        {/* <Route path="contextAPITest" element={<TestColorBox />} /> */}
       </Routes>
     </BrowserRouter>
   );

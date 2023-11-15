@@ -21,7 +21,7 @@ const ColorContext = createContext({
   },
 });
 
-// provider 만들기.
+// provider 만들기. = 세터 랑 역할이 비슷
 const ColorProvider = ({ children }) => {
   const [color, setColor] = useState("blue");
   const [subcolor, setSubcolor] = useState("red");
@@ -40,6 +40,7 @@ const ColorProvider = ({ children }) => {
   );
 };
 
+// ColorConsumer : 게터 , 이용하는 쪽 역할이 비슷
 const { Consumer: ColorConsumer } = ColorContext;
 // 추가
 //  ColorProvider: 세터, ColorConsumer: 게터

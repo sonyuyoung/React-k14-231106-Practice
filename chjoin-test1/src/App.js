@@ -30,7 +30,10 @@ import ApiTestKoreaNews from "./ch13_API_PublicDataTest/ApiTestKoreaNews";
 import MainNews from "./ch13_API_PublicDataTest/component/MainNews";
 import Categories from "./ch13_API_PublicDataTest/component/Categories";
 import NewsPage from "./ch13_API_PublicDataTest/page/NewsPage";
-import TestColorBox from "./ch14_ContextAPITest/TestColorBox";
+import TestColorMain from "./ch14_ContextAPITest/TestColorMain";
+import ApiTestBook from "./ch14_APItest/ApiTestBook";
+import MainBooks from "./ch14_APItest/component/MainBooks";
+
 function App() {
   return (
     // 페이지 이동을 위한 설정 2. 전체 요소를
@@ -66,7 +69,10 @@ function App() {
         <Route path="categories" element={<Categories />} />
         {/* <Route path="apiTest3" element={<MainNews />} /> */}
         <Route path="newsPageTest/:category" element={<NewsPage />} />
-        <Route path="testColorBox" element={<TestColorBox />} />
+        {/* <Route path="contextAPITest" element={<TestColorMain />} /> */}
+        <Route path="contextAPITest" element={<TestColorMain />} />
+        <Route path="books" element={<ApiTestBook />} />
+        <Route path="/mainBook" element={<MainBooks />} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,10 +6,9 @@ import React from "react";
 // import { useNavigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Button } from "antd";
-import "../CSS/test.css";
-
 import styled from "styled-components";
 import { Component } from "react";
+
 // styled-component,  컴포넌트에서 좀더 편하게 css  작업하는 모듈.
 // yarn add styled-components
 // npm install styled-components
@@ -311,13 +310,33 @@ const Main = () => {
           </Button>
           <br />
           <Button
-            title="testColorBox"
+            title="contextAPITest"
             type="primary"
             onClick={() => {
-              navigate("/testColorBox");
+              navigate("/contextAPITest");
             }}
           >
-            testColorBox 확인
+            contextAPITest 확인
+          </Button>
+          <br />
+          <Button
+            title="books"
+            type="primary"
+            onClick={() => {
+              navigate("/books");
+            }}
+          >
+            books 확인
+          </Button>
+          <br />
+          <Button
+            title="mainBook"
+            type="primary"
+            onClick={() => {
+              navigate("/mainBook");
+            }}
+          >
+            mainBook 확인
           </Button>
         </Container>
       </div>

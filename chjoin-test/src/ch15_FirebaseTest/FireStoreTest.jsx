@@ -23,6 +23,7 @@ import {
   addDoc,
   Timestamp,
   updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { Button } from "antd";
 
@@ -89,6 +90,13 @@ const FireStoreTest = () => {
     });
   };
 
+  // delete
+  //import { doc, deleteDoc } from "firebase/firestore";
+
+  const testDeleteDoc = async () => {
+    await deleteDoc(doc(db, "cities", "LA"));
+  };
+
   return (
     <div>
       <Button type="primary" onClick={() => testSetDoc()}>
@@ -105,6 +113,10 @@ const FireStoreTest = () => {
       &nbsp;&nbsp;
       <Button type="primary" onClick={() => testUpdateDoc()}>
         Test updateDoc
+      </Button>
+      &nbsp;&nbsp;
+      <Button type="primary" onClick={() => testDeleteDoc()}>
+        Test deleteDoc
       </Button>
     </div>
   );

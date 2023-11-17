@@ -22,6 +22,7 @@ import {
   collection,
   addDoc,
   Timestamp,
+  updateDoc,
 } from "firebase/firestore";
 import { Button } from "antd";
 
@@ -75,6 +76,19 @@ const FireStoreTest = () => {
     console.log("Document written with ID: ", docRef.id);
   };
 
+  // update
+  // import { doc, updateDoc } from "firebase/firestore";
+
+  const testUpdateDoc = async () => {
+    const LARef = doc(db, "cities", "LA");
+    // Set the "capital" field of the city 'DC'
+    await updateDoc(LARef, {
+      capital: false,
+      name: "lsy",
+      regDate: Timestamp.fromDate(new Date()),
+    });
+  };
+
   return (
     <div>
       <Button type="primary" onClick={() => testSetDoc()}>
@@ -87,6 +101,10 @@ const FireStoreTest = () => {
       &nbsp;&nbsp;
       <Button type="primary" onClick={() => testAddDoc()}>
         Test addDoc
+      </Button>
+      &nbsp;&nbsp;
+      <Button type="primary" onClick={() => testUpdateDoc()}>
+        Test updateDoc
       </Button>
     </div>
   );

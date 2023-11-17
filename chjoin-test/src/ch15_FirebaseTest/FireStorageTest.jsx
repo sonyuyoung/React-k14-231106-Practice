@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // 스토리지 공식 문서 , 샘플 코드 그대로 복사했고
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { storage } from "./firebaseConfig";
@@ -9,20 +9,32 @@ import { storage } from "./firebaseConfig";
 
 // 파일 선택하는 input , 보여주기 등.
 const FireStorageTest = () => {
+  const [uploadFile, setUploadFile] = useState();
+  const onFileChage = (event) => {
+    const files = event.target.files;
+    const thisFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      const resultData = finishedEvent.currentTarget.result;
+      setUploadFile(resultData);
+    };
+    reader.readAsDataURL(thisFile);
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const storageRef = ref(storage, "reactStorage/");
     // 'file' comes from the Blob or File API
-    const files = event.target.files;
-    const thisFile = files[0];
+
     uploadBytes(storageRef, thisFile).then((snapshot) => {
       console.log("Uploaded a blob or file!");
     });
   };
+
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="file" accept="images/*" />
+        <input type="file" accept="images/*" onChange={onFileChage} />
         <input type="submit" value="Upload" />
       </form>
     </div>

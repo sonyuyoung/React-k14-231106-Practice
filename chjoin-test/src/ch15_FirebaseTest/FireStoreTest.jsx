@@ -15,7 +15,7 @@ import { db } from "./firebaseConfig";
 
 // 공식 문서 샘플 코드를 그대로 가져온 경우.
 // https://firebase.google.com/docs/firestore/manage-data/add-data?hl=ko#web-modular-api
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { Button } from "antd";
 
 // Add a new document in collection "cities"
@@ -23,16 +23,46 @@ import { Button } from "antd";
 const FireStoreTest = () => {
   // 샘플 확인용.
   const testSetDoc = async () => {
+    //db : 파이어베이스 스토어 의미, 이용하기위한 초기값이 들어 있는 인스턴스
+    // cities : 컬렉션,(테이블과 동일 역할)
+    // LA : 문서의 아이디 부분, 보통은 자동아이디로 가능한데.
+    // 문서 아이디는 pk 형식으로 되어야해서, 중복이 되지 않게 설계해야함.
+    // 자바스크립트 객체 형태의 값이 추가되었음.
     await setDoc(doc(db, "cities", "LA"), {
       name: "Los Angeles",
       state: "CA",
       country: "USA",
     });
   };
+
+  // 데이터 가져오기. 샘플
+  const getDoc = async () => {
+    // db : 공통 도구,
+    // cities : 컬렉션에 있는
+    // LA 문서를 가져올 예정.
+    const docRef = doc(db, "cities", "LA");
+    // docSnap 실제 데이터가 존재함, 객체 형태로
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("Document data:", docSnap.data());
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  };
+  // 공식 문서 샘플 코드
+  // 임포트 상위에 있어야 함, 이동하기.
+  // import { doc, getDoc } from "firebase/firestore";
+
   return (
     <div>
       <Button type="primary" onClick={() => testSetDoc()}>
         Test setDoc
+      </Button>
+      &nbsp &nbsp
+      <Button type="primary" onClick={() => getDoc()}>
+        Test getDoc
       </Button>
     </div>
   );

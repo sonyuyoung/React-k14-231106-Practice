@@ -10,6 +10,7 @@ import { storage } from "./firebaseConfig";
 // 파일 선택하는 input , 보여주기 등.
 const FireStorageTest = () => {
   const [uploadFile, setUploadFile] = useState();
+
   const onFileChage = (event) => {
     const files = event.target.files;
     const thisFile = files[0];
@@ -23,10 +24,10 @@ const FireStorageTest = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const storageRef = ref(storage, "reactStorage/");
+    const storageRef = ref(storage, "reactStorage/B1234.jpg");
     // 'file' comes from the Blob or File API
 
-    uploadBytes(storageRef, thisFile).then((snapshot) => {
+    uploadBytes(storageRef, uploadFile).then((snapshot) => {
       console.log("Uploaded a blob or file!");
     });
   };

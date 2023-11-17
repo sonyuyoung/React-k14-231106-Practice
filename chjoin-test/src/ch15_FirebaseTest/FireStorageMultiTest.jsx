@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  deleteObject,
+  ref, // 선택된 이미지 의 인스턴스,
+  uploadBytesResumable, // 이미지 파일을 업로드 시 진행상황을 보거나, 중단, 재개 함수
+  getDownloadURL, // 스토리지의 저장된 파일의 URL 주소를 반환하는 함수.
+  deleteObject, // 스토리지의 이미지 파일을 삭제하는 함수
 } from "firebase/storage";
-import { Line } from "rc-progress";
+// https://www.npmjs.com/package/rc-progress
+import { Line, Circle } from "rc-progress";
+
 import { storage } from "./firebaseConfig";
 import { db } from "./firebaseConfig";
 import {
@@ -19,6 +21,8 @@ import {
   orderBy,
   Timestamp,
 } from "firebase/firestore";
+
+// 랜덤한 문자열 만들기.
 import { v4 as uuidv4 } from "uuid";
 
 // 준비물
@@ -38,12 +42,14 @@ import { v4 as uuidv4 } from "uuid";
 // 수정, 멀티 이미지
 
 const FireStorageMultiTest = () => {
-  const [images, setImages] = useState([]); // 스토어에서 받아온 이미지들
-  const [files, setFileList] = useState([]); // 파일 리스트
+  // 스토어에서 받아온 이미지들의 url 주소가 다 담겨져 있음.
+  const [images, setImages] = useState([]);
+  const [files, setFileList] = useState([]); // 파일 리스트, 스토리지 업로드시 선택된 사진들
   const [isUploading, setUploading] = useState(false); // 업로드 상태
   const [photoURL, setPhotosURL] = useState([]); // 업로드 완료된 사진 링크들
   const [progress, setProgress] = useState(0); // 업로드 진행상태
   // 파일 선택시 파일리스트 상태 변경해주는 함수
+  // 선택된 여러 이미지를 배열로 담아두기.
   const handleImageChange = (e) => {
     for (const image of e.target.files) {
       setFileList((prevState) => [...prevState, image]);
@@ -51,6 +57,7 @@ const FireStorageMultiTest = () => {
   };
   //파이어베이스 스토어, 스토리지에 저장된 이미지 이름 저장하는 스토어 컬렉션 참조
   const imagesCollectionRef = collection(db, "testImages");
+
   //최초 1회시 스토어에서, 이미지 컬렉션 데이터 모두 가져오기.
   useEffect(() => {
     // 비동기로 데이터 받을준비
@@ -69,6 +76,8 @@ const FireStorageMultiTest = () => {
     // users에 data안의 자료 추가. 객체에 id 덮어씌우는거
     setImages(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+
+  // 디비(스토어), 이미지의  url 저장하기.
   const createImage = async (downurl) => {
     // addDoc을 이용해서 내가 원하는 collection에 내가 원하는 key로 값을 추가한다.
     // await addDoc(imagesCollectionRef, { imgUrl: downurl, regDate: showDate() });
@@ -114,6 +123,7 @@ const FireStorageMultiTest = () => {
     return fullTime;
   };
   // 업로드시 호출될 함수
+  // e : event, fileList : 선택한 이미지들
   const handleImageUpload = async (e, fileList) => {
     e.preventDefault();
     try {
@@ -149,7 +159,9 @@ const FireStorageMultiTest = () => {
               }
             },
             () => {
+              // 이미지 스토리지에 업로드 성공하면, then
               getDownloadURL(task.snapshot.ref).then((downloadURL) => {
+                // 스토어라는 저장소에 이미지 URL 주소를 등록 하는 구조.
                 createImage(downloadURL);
                 setProgress(0);
               });
@@ -180,6 +192,12 @@ const FireStorageMultiTest = () => {
       <form onSubmit={(e) => handleImageUpload(e, files)}>
         {/* rc-progress의 Line 컴포넌트로 파일 업로드 상태 표시 */}
         <Line percent={progress} strokeWidth={2} strokeColor="#ff567a" />
+        {/* <Circle
+          percent={progress}
+          trailWidth={2}
+          strokeWidth={1}
+          strokeColor="#267132dc"
+        /> */}
         <label>
           파일:
           <input
@@ -205,6 +223,7 @@ const FireStorageMultiTest = () => {
                 />
                 <button
                   onClick={() => {
+                    //삭제시, 스토어에서 삭제 하고, 또 스토리지도 같이 삭제 필요.
                     deleteImage(url.id);
                     deleteStorageImage(url.imgUrl);
                   }}

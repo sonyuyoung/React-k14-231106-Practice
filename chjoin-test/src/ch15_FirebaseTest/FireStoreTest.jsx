@@ -60,7 +60,7 @@ const FireStoreTest = () => {
       <Button type="primary" onClick={() => testSetDoc()}>
         Test setDoc
       </Button>
-      &nbsp &nbsp
+      &nbsp;&nbsp;
       <Button type="primary" onClick={() => getDoc()}>
         Test getDoc
       </Button>
